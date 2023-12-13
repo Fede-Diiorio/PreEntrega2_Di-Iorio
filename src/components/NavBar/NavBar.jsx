@@ -2,12 +2,12 @@ import classes from './NavBar.module.css'
 
 const NavBar = () => {
     return (
-        <nav>
+        <nav className={classes.nav}>
             <h1 className={classes.titulo}>Ecommerce</h1>
             <section>
-                <button>Celulares</button>
-                <button>Teblets</button>
-                <button>Notebooks</button>
+                <button className='btn btn-primary'>Celulares</button>
+                <button className='btn btn-primary'>Teblets</button>
+                <button className='btn btn-primary'>Notebooks</button>
             </section>
         </nav>
     )
