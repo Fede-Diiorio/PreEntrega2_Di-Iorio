@@ -1,4 +1,4 @@
-import clases from './Card.module.css'
+import clases from './Card.module.scss'
 
 const Card = () => {
     return (

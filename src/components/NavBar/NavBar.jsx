@@ -1,4 +1,4 @@
-import classes from './NavBar.module.css'
+import classes from './NavBar.module.scss'
 
 const NavBar = () => {
     return (
