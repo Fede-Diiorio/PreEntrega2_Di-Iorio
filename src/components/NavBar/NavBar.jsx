@@ -1,5 +1,6 @@
 import classes from './NavBar.module.scss'
 import icono from './assets/icono.png'
+import Boton from '../Boton/Boton'
 
 const NavBar = () => {
     return (
@@ -12,9 +13,9 @@ const NavBar = () => {
 
                 <nav>
                     <ul className={classes.ul}>
-                        <li><button className='btn btn-primary'>Colgantes</button></li>
-                        <li><button className='btn btn-primary'>Remeras</button></li>
-                        <li> <button className='btn btn-primary'>Varitas</button></li>
+                        <li><Boton label={"Colgantes"} /></li>
+                        <li><Boton label={"Remeras"} /></li>
+                        <li><Boton label={"Varitas"} /></li>
                     </ul>
                 </nav>
             </div>

@@ -1,0 +1,21 @@
+.boton {
+    background-color: $primarioOscuro;
+    color: $blanco;
+    font-size: 1.4rem;
+    text-decoration: none;
+    padding: .5rem 1rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: 1rem;
+    border: none;
+    display: inline;
+    border: 2px solid $secundario;
+    transition: all .3s ease-in-out;
+
+    &:hover {
+        background-color: $secundario;
+        color: $primarioOscuro;
+        border: 2px solid $secundarioOscuro;
+        cursor: pointer;
+    }
+}
