@@ -1,0 +1,18 @@
+.contenedor {
+    display: flex;
+    gap: 1rem;
+
+    .cart {
+        font-size: 2rem;
+        color: $primarioOscuro;
+        transition: all .3s ease-in-out;
+
+        &:hover {
+            color: $secundario;
+        }
+    }
+
+    p {
+        margin: 0;
+    }
+}

@@ -5,7 +5,11 @@ function App() {
   return (
     <>
       <NavBar />
-      <Card />
+      <div className={"d-flex container"}>
+        <Card title={"Varita Voldemort"} />
+        <Card title={"Varita Harry Potter"} />
+        <Card title={"Varita de Sauco"} />
+      </div>
     </>
   )
 }
