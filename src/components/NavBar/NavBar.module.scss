@@ -1,8 +1,33 @@
-.titulo {
-    text-align: center;
-}
-
-.nav {
+.background {
     background-color: $primario;
     padding: 3rem;
+
+    .contenedor {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .titulo {
+            text-align: center;
+
+            span {
+                font-size: 2rem;
+                margin-bottom: 2rem;
+            }
+        }
+
+        img {
+            height: 15rem;
+        }
+    }
+
+    .ul {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+
+        li {
+            list-style-type: none;
+        }
+    }
 }
