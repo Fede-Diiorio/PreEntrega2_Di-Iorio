@@ -1,7 +1,7 @@
 import {useState} from "react"
 
-const ItemCount = (props) => {
-    const [count, setCount] = useState(props.initialValue)
+const ItemCount = () => {
+    const [count, setCount] = useState(1)
 
     const increment = () => {
         if(count < 100) {
