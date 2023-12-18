@@ -1,6 +1,6 @@
 import classes from './Card.module.scss'
 import Button from '../Button/Button'
-import ItemCount from '../ItemCount/ItemCount'
+import ItemCountButton from '../ItemCount/ItemCount'
 
 const Card = (props) => {
     return (
@@ -11,7 +11,7 @@ const Card = (props) => {
                     <p className="card-text">Descripción del producto</p>
                     <div className={classes.buttonCount}>
                         <Button label={"Agregar"} />
-                        <ItemCount />
+                        <ItemCountButton />
                     </div>
                 </div>
             </div>

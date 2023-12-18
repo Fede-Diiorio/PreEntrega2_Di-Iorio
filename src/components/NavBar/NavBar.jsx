@@ -1,7 +1,7 @@
 import classes from './NavBar.module.scss'
 import icono from './assets/icono.png'
 import Button from '../Button/Button'
-import Cart from '../Cart/Cart'
+import Cart from '../CartWidget/CartWidget'
 
 const NavBar = () => {
     return (
