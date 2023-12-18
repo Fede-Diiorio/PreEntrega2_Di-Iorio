@@ -1,4 +1,9 @@
 .propiedades {
-    width: 20rem;
+    width: 23rem;
     margin: 2rem;
+
+    .buttonCount {
+        display: flex;
+        gap: 2rem;
+    }
 }

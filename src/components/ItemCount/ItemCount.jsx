@@ -1,10 +1,11 @@
-import {useState} from "react"
+import { useState } from "react"
+import classes from "./ItemCount.module.scss"
 
 const ItemCount = () => {
     const [count, setCount] = useState(1)
 
     const increment = () => {
-        if(count < 100) {
+        if (count < 100) {
             setCount(count + 1)
         }
     }
@@ -16,10 +17,10 @@ const ItemCount = () => {
     }
 
     return (
-        <div>
-            <button onClick={decrement}>-</button>
+        <div className={classes.contenedorCount}>
+            <button className={classes.enlace} onClick={decrement}>-</button>
             <p>{count}</p>
-            <button onClick={increment}>+</button>
+            <button className={classes.enlace} onClick={increment}>+</button>
         </div>
     )
 }
