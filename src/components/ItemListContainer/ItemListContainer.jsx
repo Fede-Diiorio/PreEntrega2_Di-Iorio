@@ -6,9 +6,9 @@ const ItemListContainer = (greeting) => {
             <h2>{greeting.title}</h2>
 
             <div className="d-flex">
-                <Card title={"Varita Voldemort"} />
-                <Card title={"Varita Harry Potter"} />
-                <Card title={"Varita de Sauco"} />
+                <Card title={"Varita Voldemort"} image={"./varitaVoldemort.webp"} />
+                <Card title={"Varita Harry Potter"} image={"./varitaHarry.webp"} />
+                <Card title={"Varita de Sauco"} image={"./varitaSauco.webp"} />
             </div>
         </div>
     )
