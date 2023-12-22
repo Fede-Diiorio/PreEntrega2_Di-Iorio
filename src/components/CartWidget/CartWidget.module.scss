@@ -1,10 +1,11 @@
-.contenedor {
+.container {
     display: flex;
+    align-items: center;
     gap: 1rem;
 
     .cart {
-        font-size: 2rem;
-        color: $primarioOscuro;
+        font-size: 3rem;
+        color: $negro;
         transition: all .3s ease-in-out;
 
         &:hover {

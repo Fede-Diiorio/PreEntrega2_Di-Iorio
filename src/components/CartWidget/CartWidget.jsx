@@ -1,10 +1,10 @@
-import cart from "./assets/cart.svg"
+import { FiShoppingCart } from "react-icons/fi";
 import classes from "./CartWidget.module.scss"
 
 const Cart = () => {
     return (
-        <div className={classes.contenedor}>
-            <img className={classes.cart} src={cart} alt="Imagen del carrito" />
+        <div className={classes.container}>
+            <FiShoppingCart className={classes.cart} />
             <p>0</p>
         </div>
     )
