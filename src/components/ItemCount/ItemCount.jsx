@@ -17,10 +17,10 @@ const ItemCount = () => {
     }
 
     return (
-        <div className={classes.contenedorCount}>
-            <button className={classes.enlace} onClick={decrement}>-</button>
+        <div className={classes.countContainer}>
+            <button className={classes.anchor} onClick={decrement}>-</button>
             <p>{count}</p>
-            <button className={classes.enlace} onClick={increment}>+</button>
+            <button className={classes.anchor} onClick={increment}>+</button>
         </div>
     )
 }

@@ -1,25 +1,25 @@
-.contenedorCount {
+.countContainer {
     display: flex;
-    gap: .5rem;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+    border: 1px solid $primarioOscuro;
+    border-radius: 1rem;
+    margin-bottom: 1rem;
 
-    p {
-        margin: 0;
-    }
-
-    .enlace {
-        background-color: $primarioOscuro;
-        border-radius: 100%;
-        padding: .1rem 1.1rem;
-        color: $blanco;
-        text-decoration: none;
-        cursor: pointer;
-        border: 2px solid $secundario;
+    .anchor {
+        background: transparent;
+        border: none;
+        color: $primarioOscuro;
+        font-size: 3rem;
         transition: all .3s ease-in-out;
 
         &:hover {
-            background-color: $secundario;
-            border: 2px solid $secundarioOscuro;
-            color: $primarioOscuro;
+            color: $primario;
         }
+    }
+
+    p {
+        margin: 0;
     }
 }
