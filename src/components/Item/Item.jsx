@@ -2,7 +2,7 @@ import classes from './Item.module.scss'
 import ItemCount from '../ItemCount/ItemCount'
 import Button from '../Button/Button'
 
-const Card = ({ name, img, description }) => {
+const Item = ({ name, img, description }) => {
     return (
         <div className={classes.prop}>
             <div className="card">
@@ -18,4 +18,4 @@ const Card = ({ name, img, description }) => {
     )
 }
 
-export default Card
+export default Item
