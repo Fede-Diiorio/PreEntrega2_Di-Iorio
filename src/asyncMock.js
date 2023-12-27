@@ -31,7 +31,7 @@ const products = [
         name: 'Remera de Plataforma 9 3/4',
         price: 5000,
         category: 'remera',
-        img: './remeraPlataforma9-34.webp',
+        img: './remera9-34.webp',
         stock: 15,
         description: 'Generar descripción en otro momento'
     },
