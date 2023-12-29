@@ -1,9 +1,15 @@
 .prop {
-    width: 23rem;
-    margin: 2rem;
+    width: 80%;
+    margin: 0 auto;
 
     .buttonCount {
         display: flex;
         gap: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .prop {
+        margin-bottom: 2rem;
     }
 }
