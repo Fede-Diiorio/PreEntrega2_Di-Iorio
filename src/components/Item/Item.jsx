@@ -1,8 +1,7 @@
 import classes from './Item.module.scss'
 import ItemCount from '../ItemCount/ItemCount'
-import Button from '../Button/Button'
 
-const Item = ({ name, img, description }) => {
+const Item = ({ name, img, description, stock }) => {
     return (
         <div className={classes.prop}>
             <div className="card">
@@ -10,8 +9,7 @@ const Item = ({ name, img, description }) => {
                 <div className="card-body">
                     <h5 className="card-title">{name}</h5>
                     <p className="card-text">{description}</p>
-                    <ItemCount />
-                    <Button label={"Agregar"} />
+                    <ItemCount initial={1} stock={stock} />
                 </div>
             </div>
         </div>

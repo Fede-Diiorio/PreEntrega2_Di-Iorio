@@ -3,28 +3,32 @@ import { useState } from 'react'
 import { FaPlus } from "react-icons/fa";
 import { FaMinus } from "react-icons/fa";
 
-const ItemCount = () => {
+const ItemCount = ({ initial, stock, onAdd }) => {
 
-    const [count, setCount] = useState(1)
+    const [quantity, setQuantity] = useState(initial)
 
     const decrement = () => {
-        if (count > 1) {
-            setCount(count - 1)
+        if (quantity > initial) {
+            setQuantity(quantity - 1)
         }
     }
 
     const increment = () => {
-        if (count < 100) {
-            setCount(count + 1)
+        if (quantity < stock) {
+            setQuantity(quantity + 1)
         }
     }
 
     return (
         <div className={classes.container}>
-            <FaMinus className={classes.button} onClick={decrement} />
-            <p>{count}</p>
-            <FaPlus className={classes.button} onClick={increment} />
+            <div className={classes.itemCount}>
+                <FaMinus className={classes.button} onClick={decrement} />
+                <p>{quantity}</p>
+                <FaPlus className={classes.button} onClick={increment} />
+            </div>
+            <button className={classes.buttonAdd} onClick={() => onAdd(quantity)} disabled={!stock}>Agregar</button>
         </div>
+
     )
 }
 

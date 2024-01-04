@@ -14,9 +14,9 @@ const NavBar = () => {
 
                 <nav>
                     <ul className={classes.ul}>
-                        <li><Button label={"Remeras"} /></li>
-                        <li><Button label={"Colgantes"} /></li>
-                        <li><Button label={"Varitas"} /></li>
+                        <li><Button>Remeras</Button></li>
+                        <li><Button>Colgantes</Button></li>
+                        <li><Button>Varitas</Button></li>
                     </ul>
                 </nav>
 
