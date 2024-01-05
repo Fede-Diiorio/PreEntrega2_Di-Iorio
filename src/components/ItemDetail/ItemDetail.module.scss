@@ -1,0 +1,58 @@
+.card {
+    display: flex;
+    margin: 2rem auto;
+    border: 1px solid $primario;
+    border-radius: 2rem;
+
+    .img {
+        width: 40rem;
+        border-radius: 2rem;
+    }
+
+    .cardBody {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 2rem;
+
+        .cardInfo {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+
+            p {
+                strong {
+                    font-size: 1.4rem;
+                }
+            }
+        }
+
+        .itemCount {
+            width: 30rem;
+        }
+    }
+}
+
+@media (max-width: 992px) {
+    .card {
+        flex-direction: column;
+        width: 40rem;
+
+        .img {
+            margin: 0 auto;
+            width: 35rem;
+        }
+
+        .cardBody {
+            align-items: center;
+
+            .cardTitle {
+                margin: 1rem 0;
+            }
+
+            .cardText {
+                text-align: center;
+            }
+        }
+    }
+}

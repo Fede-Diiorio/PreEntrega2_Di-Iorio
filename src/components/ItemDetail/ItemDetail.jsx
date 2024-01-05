@@ -1,14 +1,21 @@
 import ItemCount from '../ItemCount/ItemCount'
+import classes from './ItemDetail.module.scss'
 
-const ItemDetail = ({ name, img, description, stock }) => {
+const ItemDetail = ({ name, img, description, stock, price }) => {
     return (
 
-        <div className="card">
-            <img src={img} className='card-img-top' />
-            <div className="card-body">
-                <h4 className='card-title'>{name}</h4>
-                <p className='card-text'>{description}</p>
-                <ItemCount initial={1} stock={stock} onAdd={(quantity) => console.log('Cantidad Agregada: ', quantity)} />
+        <div className={classes.card}>
+            <img src={img} alt={`Imagen de ${name}`} className={classes.img} />
+            <div className={classes.cardBody}>
+                <h4 className={classes.cardTitle}>{name}</h4>
+                <p className={classes.cardText}>{description}</p>
+                <div className={classes.cardInfo}>
+                    <p><strong>Precio: </strong>$ {price}</p>
+                    <p><strong>Stock: </strong>{stock}</p>
+                </div>
+                <div className={classes.itemCount}>
+                    <ItemCount initial={1} stock={stock} onAdd={(quantity) => console.log('Cantidad Agregada: ', quantity)} />
+                </div>
             </div>
         </div>
 
