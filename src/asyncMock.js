@@ -89,10 +89,10 @@ export const getProducts = () => {
         }, 500)
     })
 }
-export const getProductsById = () => {
+export const getProductsById = (id) => {
     return new Promise((resolve) => {
         setTimeout(() => {
-            resolve(products)
+            resolve(products[id])
         }, 500)
     })
 }

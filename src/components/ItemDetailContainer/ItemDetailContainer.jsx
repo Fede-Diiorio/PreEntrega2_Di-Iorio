@@ -1,4 +1,3 @@
-import classes from './ItemDetailContainer.module.scss'
 import { useEffect, useState } from "react"
 import { getProductsById } from "../../asyncMock"
 import ItemDetail from "../ItemDetail/ItemDetail"
@@ -9,7 +8,8 @@ const ItemDetailContainer = () => {
     const [products, setProducts] = useState(null)
 
     useEffect(() => {
-        getProductsById('1').then(response => {
+        getProductsById(5).then(response => {
+            console.log(response)
             setProducts(response)
         }).catch(error => {
             console.error(error)
@@ -17,7 +17,7 @@ const ItemDetailContainer = () => {
     })
 
     return (
-        <div className={classes.itemDetailContainer}>
+        <div className='container'>
             <ItemDetail {...products} />
         </div>
     )
