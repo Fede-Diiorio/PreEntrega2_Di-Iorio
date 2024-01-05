@@ -6,7 +6,7 @@ const products = [
         category: 'varita',
         img: './varitaSauco.webp',
         stock: 5,
-        description: 'Generar descripción en otro momento'
+        description: 'Una poderosa varita esculpida en madera de saúco, famosa por su conexión única con su poseedor. Ideal para aquellos magos y brujas que buscan un instrumento mágico de alta calidad.'
     },
     {
         id: '2',
@@ -15,7 +15,7 @@ const products = [
         category: 'varita',
         img: './varitaHarry.webp',
         stock: 2,
-        description: 'Generar descripción en otro momento'
+        description: 'La icónica varita de Harry Potter, conocida por sus hazañas en la derrota del mago tenebroso. Réplica auténtica con detalles precisos para los fanáticos de la saga.'
     },
     {
         id: '3',
@@ -24,7 +24,7 @@ const products = [
         category: 'varita',
         img: './varitaVoldemort.webp',
         stock: 3,
-        description: 'Generar descripción en otro momento'
+        description: 'La oscura varita de Lord Voldemort, con un diseño intimidante y poderes oscuros. Perfecta para aquellos que buscan un toque de magia siniestra.'
     },
     {
         id: '4',
@@ -33,7 +33,7 @@ const products = [
         category: 'remera',
         img: './remera9-34.webp',
         stock: 15,
-        description: 'Generar descripción en otro momento'
+        description: 'Una elegante remera con el emblema de la Plataforma 9 3/4, perfecta para los amantes de la magia y la aventura. Ideal para expresar tu amor por el mundo mágico.'
     },
     {
         id: '5',
@@ -42,7 +42,7 @@ const products = [
         category: 'remera',
         img: './remeraEmblema.webp',
         stock: 25,
-        description: 'Generar descripción en otro momento'
+        description: 'Luce con orgullo el emblema de Hogwarts con esta vibrante remera. Ideal para los aspirantes a magos y brujas que anhelan pertenecer a la escuela de magia más famosa.'
     },
     {
         id: '6',
@@ -51,7 +51,7 @@ const products = [
         category: 'remera',
         img: './remeraReliquias.webp',
         stock: 20,
-        description: 'Generar descripción en otro momento'
+        description: 'Una remera intrigante con el símbolo de las Reliquias de la Muerte. Perfecta para aquellos que buscan una prenda con un toque de misterio y significado.'
     },
     {
         id: '7',
@@ -60,25 +60,25 @@ const products = [
         category: 'colgante',
         img: './colgante9-34.webp',
         stock: 10,
-        description: 'Generar descripción en otro momento'
+        description: 'Un encantador colgante que representa la entrada a la Plataforma 9 3/4. Ideal para aquellos que desean llevar consigo un pedacito del mundo mágico.'
     },
     {
-        id: '3',
+        id: '8',
         name: 'Colgante de Reliquias de la Muerte',
         price: 2500,
         category: 'colgante',
         img: './colganteReliquias.webp',
         stock: 5,
-        description: 'Generar descripción en otro momento'
+        description: 'Un colgante místico que representa las tres Reliquias de la Muerte. Perfecto para aquellos que aprecian la simbología mágica y la conexión con la historia.'
     },
     {
-        id: '3',
+        id: '9',
         name: 'Colgante de Harry Potter',
         price: 1500,
         category: 'colgante',
         img: './colganteHarry.webp',
         stock: 15,
-        description: 'Generar descripción en otro momento'
+        description: 'Un encantador colgante inspirado en el famoso mago Harry Potter. Ideal para los admiradores del niño que vivió y su valentía en la lucha contra las fuerzas oscuras.'
     }
 ]
 
@@ -86,6 +86,13 @@ export const getProducts = () => {
     return new Promise((resolve) => {
         setTimeout(() => {
             resolve(products)
-        }, 1000)
+        }, 500)
+    })
+}
+export const getProductsById = () => {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            resolve(products)
+        }, 500)
     })
 }

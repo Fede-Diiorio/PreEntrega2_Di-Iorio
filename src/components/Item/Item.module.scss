@@ -1,11 +1,41 @@
-.prop {
-    width: 80%;
+.width {
+    width: 32rem;
     margin: 0 auto;
 
-    .buttonCount {
-        display: flex;
-        gap: 2rem;
+    .card {
+        border: 1px solid $primario;
+        border-radius: 2rem;
+
+        .image {
+            width: 100%;
+            border-radius: 2rem 2rem 0 0;
+        }
+
+        .cardBody {
+            padding: 2rem;
+            text-align: center;
+
+            .title {
+                min-height: 4.6rem;
+            }
+
+            .cardInfo {
+                display: flex;
+                gap: 2rem;
+                justify-content: center;
+
+                p {
+
+                    strong {
+                        font-size: 1.6rem;
+                    }
+                }
+            }
+        }
     }
+
+
+
 }
 
 @media (max-width: 768px) {

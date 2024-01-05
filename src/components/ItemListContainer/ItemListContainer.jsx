@@ -10,6 +10,9 @@ const ItemListContainer = ({ greeting }) => {
         getProducts().then(response => {
             setProducts(response)
         })
+            .catch(error => {
+                console.error(error)
+            })
     }, [])
 
     return (
