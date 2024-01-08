@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { getProducts } from "../../asyncMock"
 import ItemList from "../ItemList/ItemList"
+import TileChange from "../TitleChange/TitelChange"
 
 const ItemListContainer = ({ greeting }) => {
 
@@ -19,6 +20,7 @@ const ItemListContainer = ({ greeting }) => {
         <div className="container">
             <h2>{greeting}</h2>
             <ItemList products={products} />
+            <TileChange title={'Plataforma 9 3/4 | Inicio'} />
         </div>
     )
 }
