@@ -2,7 +2,7 @@ const products = [
     {
         id: '1',
         name: 'Varita de Sauco',
-        price: 7000,
+        price: 11,
         category: 'varita',
         img: './varitaSauco.webp',
         stock: 5,
@@ -11,7 +11,7 @@ const products = [
     {
         id: '2',
         name: 'Varita de Harry Potter',
-        price: 6800,
+        price: 10,
         category: 'varita',
         img: './varitaHarry.webp',
         stock: 2,
@@ -20,7 +20,7 @@ const products = [
     {
         id: '3',
         name: 'Varita de Voldemort',
-        price: 6900,
+        price: 9,
         category: 'varita',
         img: './varitaVoldemort.webp',
         stock: 3,
@@ -29,7 +29,7 @@ const products = [
     {
         id: '4',
         name: 'Remera de Plataforma 9 3/4',
-        price: 5000,
+        price: 5,
         category: 'remera',
         img: './remera9-34.webp',
         stock: 15,
@@ -38,7 +38,7 @@ const products = [
     {
         id: '5',
         name: 'Remera de Emblema de Hogwarts',
-        price: 5200,
+        price: 4,
         category: 'remera',
         img: './remeraEmblema.webp',
         stock: 25,
@@ -47,7 +47,7 @@ const products = [
     {
         id: '6',
         name: 'Remera de Reliquias de la Muerte',
-        price: 5500,
+        price: 6,
         category: 'remera',
         img: './remeraReliquias.webp',
         stock: 20,
@@ -56,7 +56,7 @@ const products = [
     {
         id: '7',
         name: 'Colgante de Plataforma 9 3/4',
-        price: 2000,
+        price: 2,
         category: 'colgante',
         img: './colgante9-34.webp',
         stock: 10,
@@ -65,7 +65,7 @@ const products = [
     {
         id: '8',
         name: 'Colgante de Reliquias de la Muerte',
-        price: 2500,
+        price: 3,
         category: 'colgante',
         img: './colganteReliquias.webp',
         stock: 5,
@@ -74,7 +74,7 @@ const products = [
     {
         id: '9',
         name: 'Colgante de Harry Potter',
-        price: 1500,
+        price: 1,
         category: 'colgante',
         img: './colganteHarry.webp',
         stock: 15,

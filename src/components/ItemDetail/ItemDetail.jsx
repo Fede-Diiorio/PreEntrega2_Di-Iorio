@@ -1,6 +1,6 @@
+import DollarToPesoPrice from '../DollarToPesoPrice/DollarToPesoPrice'
 import ItemCount from '../ItemCount/ItemCount'
 import classes from './ItemDetail.module.scss'
-import { mostrarNumeroConComas } from '../../helpers/numeroConComas'
 
 const ItemDetail = ({ name, img, description, stock, price }) => {
     return (
@@ -11,7 +11,7 @@ const ItemDetail = ({ name, img, description, stock, price }) => {
                 <h4 className={classes.cardTitle}>{name}</h4>
                 <p className={classes.cardText}>{description}</p>
                 <div className={classes.cardInfo}>
-                    <p><strong>Precio: </strong>$ {mostrarNumeroConComas(price)}</p>
+                    <p><strong>Precio: </strong><DollarToPesoPrice price={price} /></p>
                     <p><strong>Stock: </strong>{stock}</p>
                 </div>
                 <div className={classes.itemCount}>

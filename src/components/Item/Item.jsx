@@ -1,6 +1,7 @@
 import classes from './Item.module.scss'
 import Button from '../Button/Button'
-import { mostrarNumeroConComas } from '../../helpers/numeroConComas'
+import DollarToPesoPrice from '../DollarToPesoPrice/DollarToPesoPrice'
+
 
 const Item = ({ name, img, price, stock }) => {
     return (
@@ -10,7 +11,7 @@ const Item = ({ name, img, price, stock }) => {
                 <div className={classes.cardBody}>
                     <h4 className={classes.title}>{name}</h4>
                     <div className={classes.cardInfo}>
-                        <p><strong>Precio: </strong>$ {mostrarNumeroConComas(price)}</p>
+                        <p><strong>Precio: </strong>$ <DollarToPesoPrice price={price} /></p>
                         <p><strong>Stock: </strong>{stock}</p>
                     </div>
                     <Button>Ver Detalle</Button>
