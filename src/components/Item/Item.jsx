@@ -1,9 +1,10 @@
 import classes from './Item.module.scss'
 import Button from '../Button/Button'
 import DollarToPesoPrice from '../DollarToPesoPrice/DollarToPesoPrice'
+import { Link } from 'react-router-dom'
 
 
-const Item = ({ name, img, price, stock }) => {
+const Item = ({ id, name, img, price, stock }) => {
     return (
         <div className={classes.width}>
             <div className={classes.card}>
@@ -14,7 +15,8 @@ const Item = ({ name, img, price, stock }) => {
                         <p><strong>Precio: </strong>$ <DollarToPesoPrice price={price} /></p>
                         <p><strong>Stock: </strong>{stock}</p>
                     </div>
-                    <Button>Ver Detalle</Button>
+                    <Link className={classes.link} to={`detail/${id}`}><Button>Ver Detalle</Button></Link>
+
                 </div>
             </div>
         </div>

@@ -11,9 +11,12 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            text-decoration: none;
+            color: $negro;
 
             .title {
                 text-align: center;
+                font-family: $fuentePrincipal;
 
                 span {
                     font-size: 2rem;
@@ -34,6 +37,10 @@
 
             li {
                 list-style-type: none;
+
+                .link {
+                    text-decoration: none;
+                }
             }
         }
     }
