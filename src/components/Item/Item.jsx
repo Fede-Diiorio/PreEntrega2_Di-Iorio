@@ -16,7 +16,6 @@ const Item = ({ id, name, img, price, stock }) => {
                         <p><strong>Stock: </strong>{stock}</p>
                     </div>
                     <Link className={classes.link} to={`detail/${id}`}><Button>Ver Detalle</Button></Link>
-
                 </div>
             </div>
         </div>
