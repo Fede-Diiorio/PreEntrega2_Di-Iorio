@@ -8,7 +8,7 @@ const Item = ({ id, name, img, price, stock }) => {
     return (
         <div className={classes.width}>
             <div className={classes.card}>
-                <img src={img} className={classes.image} />
+                <img src={img} alt={`Imagen de ${name}`} className={classes.image} />
                 <div className={classes.cardBody}>
                     <h4 className={classes.title}>{name}</h4>
                     <div className={classes.cardInfo}>
