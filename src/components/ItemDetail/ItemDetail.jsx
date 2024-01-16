@@ -1,8 +1,13 @@
+import { Link } from 'react-router-dom'
 import DollarToPesoPrice from '../DollarToPesoPrice/DollarToPesoPrice'
 import ItemCount from '../ItemCount/ItemCount'
 import classes from './ItemDetail.module.scss'
+import { useState } from 'react'
+import Button from '../Button/Button'
 
 const ItemDetail = ({ id, name, img, description, stock, price }) => {
+
+    const [quantity, setQuantity] = useState(0)
 
     const handleOnAdd = (quantity) => {
         const objProduct = {
@@ -13,6 +18,7 @@ const ItemDetail = ({ id, name, img, description, stock, price }) => {
         }
 
         console.log('Se agregó correctamente: ', objProduct)
+        setQuantity(quantity)
     }
 
     return (
@@ -27,7 +33,11 @@ const ItemDetail = ({ id, name, img, description, stock, price }) => {
                     <p><strong>Stock: </strong>{stock}</p>
                 </div>
                 <div className={classes.itemCount}>
-                    <ItemCount stock={stock} onAdd={handleOnAdd} />
+                    {
+                        quantity === 0 ? (<ItemCount stock={stock} onAdd={handleOnAdd} />) : (<Link to={'/cart'}><Button>Finalizar Compra</Button></Link>)
+
+                    }
+
                 </div>
             </div>
         </div>
