@@ -39,7 +39,7 @@ const ItemListContainer = ({ greeting }) => {
 
     return (
         <div className="container">
-            <h2>{greeting}</h2>
+            <h2>{greeting + (categoryId ?? '')}</h2>
             <ItemList products={products} />
             <TileChange title={'Plataforma 9 3/4 | Inicio'} />
         </div>
