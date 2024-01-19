@@ -1,0 +1,45 @@
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid $primario;
+    margin: 2rem 0;
+    padding: 0 3rem;
+    border-radius: 1rem;
+
+    .img {
+        width: 7rem;
+    }
+
+    h5 {
+        font-size: 1.7rem;
+        width: 25%;
+    }
+
+    h5,
+    p {
+        margin: 0;
+    }
+
+    p {
+        strong {
+            font-size: 1.5rem;
+        }
+    }
+
+    button {
+        border: none;
+        background-color: transparent;
+
+        .icon {
+            font-size: 3rem;
+            color: $eliminar;
+            transition: all .3s ease-in-out;
+
+            &:hover {
+                color: $eliminarOscuro;
+                scale: 1.1;
+            }
+        }
+    }
+}

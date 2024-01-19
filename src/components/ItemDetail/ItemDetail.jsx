@@ -17,7 +17,8 @@ const ItemDetail = ({ id, name, img, description, stock, price }) => {
             id,
             name,
             price,
-            quantity
+            quantity,
+            img
         }
 
         addItem(objProduct)
