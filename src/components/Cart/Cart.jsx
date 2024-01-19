@@ -3,6 +3,8 @@ import { useCart } from "../../context/CartContext"
 import Button from "../Button/Button"
 import { Link } from "react-router-dom"
 import classes from './Cart.module.scss'
+import DollarToPesoPrice from '../DollarToPesoPrice/DollarToPesoPrice'
+import { priceFormat } from "../../helpers/priceFormat"
 
 const Cart = () => {
 
@@ -18,10 +20,15 @@ const Cart = () => {
     }
 
     return (
-        <div>
+        <div className='container'>
             {cart.map(prod => <CartItem key={prod.id} {...prod} />)}
-            <h3>{totalPrice}</h3>
-            <Button onClick={clearCart}>Limpiar Carrito</Button>
+            <div className={classes.nav}>
+                <Button onClick={clearCart} className={classes.button}>Vaciar Carrito</Button>
+                <div className={classes.priceContainer}>
+                    <h4><strong>Total USD: </strong>$ {priceFormat(totalPrice)}</h4>
+                    <h4><strong>Total ARS: </strong>$ <DollarToPesoPrice price={totalPrice} /></h4>
+                </div>
+            </div>
         </div>
     )
 

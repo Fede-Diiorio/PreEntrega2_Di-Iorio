@@ -2,14 +2,14 @@
     color: $blanco;
     background-color: $primario;
     padding: .5rem 1rem;
-    border: 1px solid $secundario;
+    border: 2px solid $secundario;
     border-radius: .5rem;
     transition: all .3s ease-in-out;
 
 
     &:hover {
         background-color: $primarioOscuro;
-        border: 1px solid $primario;
+        border: 2px solid $primario;
 
         .cart {
             color: $secundarioOscuro;

@@ -1,4 +1,25 @@
-.container {
-    text-align: center;
-    margin: 0 auto;
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .priceContainer {
+        background-color: $primario;
+        color: $blanco;
+        text-decoration: none;
+        padding: .5rem 1rem;
+        text-transform: uppercase;
+        border-radius: 1rem;
+        display: inline;
+        border: 2px solid $secundario;
+        transition: all .3s ease-in-out;
+
+        h4 {
+            margin: .5rem 0;
+
+            strong {
+                font-size: 1.4rem;
+            }
+        }
+    }
 }

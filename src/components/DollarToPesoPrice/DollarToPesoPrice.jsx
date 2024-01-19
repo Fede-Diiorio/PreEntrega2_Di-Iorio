@@ -17,7 +17,7 @@ const DollarToPesoPrice = ({ price }) => {
 
     return (
         <>
-            $ {priceFormat(convertion)}
+            {priceFormat(convertion)}
         </>
     )
 
