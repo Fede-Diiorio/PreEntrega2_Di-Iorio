@@ -8,7 +8,7 @@ const Cart = () => {
     const { totalQuantity } = useCart()
 
     return (
-        <Link className={classes.link} to='/cart'>
+        <Link className={classes.link} to='/cart' style={{ display: totalQuantity > 0 ? 'block' : 'none' }}>
             <div className={classes.container}>
                 <FiShoppingCart className={classes.cart} />
                 <p>{totalQuantity}</p>
