@@ -1,19 +1,33 @@
-.container {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
+.link {
+    color: $negro;
+    background-color: $gris;
+    padding: .5rem 1rem;
+    border: 1px solid $negro;
+    border-radius: .5rem;
+    transition: all .3s ease-in-out;
 
-    .cart {
-        font-size: 3rem;
-        color: $negro;
-        transition: all .3s ease-in-out;
 
-        &:hover {
-            color: $primarioOscuro;
+    &:hover {
+        background-color: $primario;
+        border: 1px solid $secundario;
+
+        .cart {
+            scale: 1.1;
         }
     }
 
-    p {
-        margin: 0;
+    .container {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        transition: all .3s ease-in-out;
+
+        .cart {
+            font-size: 3rem;
+        }
+
+        p {
+            margin: 0;
+        }
     }
 }
