@@ -1,0 +1,35 @@
+.background {
+    border-bottom: 2px solid $secundarioOscuro;
+
+    .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .titleContainer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            color: $negro;
+
+            .title {
+                text-align: center;
+                font-family: $fuentePrincipal;
+
+                span {
+                    font-size: 2rem;
+                    margin-bottom: 2rem;
+                }
+            }
+
+            img {
+                height: 6rem;
+            }
+        }
+
+        .cartWidget {
+            margin-left: 20rem;
+        }
+    }
+}
