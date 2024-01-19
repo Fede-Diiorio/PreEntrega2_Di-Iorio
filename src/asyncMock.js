@@ -89,6 +89,7 @@ export const getProducts = () => {
         }, 1000)
     })
 }
+
 export const getProductsById = (productId) => {
     return new Promise((resolve) => {
         setTimeout(() => {

@@ -16,14 +16,18 @@
         .button {
             background: transparent;
             border: none;
-            color: $primario;
-            font-size: 1.6rem;
-            transition: all .3s ease-in-out;
 
-            &:hover {
-                color: $primarioOscuro;
+            .buttonIcon {
+                color: $primario;
+                font-size: 1.6rem;
+                transition: all .3s ease-in-out;
+
+                &:hover {
+                    color: $primarioOscuro;
+                }
             }
         }
+
 
         p {
             margin: 0;

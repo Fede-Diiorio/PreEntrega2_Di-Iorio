@@ -21,9 +21,11 @@ const ItemCount = ({ initial = 1, stock, onAdd }) => {
     return (
         <div className={classes.container}>
             <div className={classes.itemCount}>
-                <FaMinus className={classes.button} onClick={decrement} />
+                <button className={classes.button}><FaMinus className={classes.buttonIcon} onClick={decrement} /></button>
+
                 <p>{quantity}</p>
-                <FaPlus className={classes.button} onClick={increment} />
+                <button className={classes.button}><FaPlus className={classes.buttonIcon} onClick={increment} /></button>
+
             </div>
             <button className={classes.buttonAdd} onClick={() => onAdd(quantity)} disabled={!stock}>Agregar</button>
         </div>
