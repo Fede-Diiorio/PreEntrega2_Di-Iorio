@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 const NavBar = () => {
     return (
-        <div>
+        <aside className={classes.aside}>
 
             <nav>
                 <ul className={classes.ul}>
@@ -14,9 +14,8 @@ const NavBar = () => {
                 </ul>
             </nav>
 
-        </div>
+        </aside>
     )
-
 }
 
 export default NavBar

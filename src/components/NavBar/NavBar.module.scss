@@ -1,49 +1,22 @@
-.background {
-    background-color: $secundarioOscuro;
-    padding: 3rem;
+.aside {
+    margin-left: 2rem;
+    height: 100%;
+    padding: 2rem 2rem 0 0;
+    position: absolute;
 
-    .align {
+    .ul {
         display: flex;
         flex-direction: column;
-        align-items: center;
+        justify-content: center;
+        gap: 2rem;
+        padding: 0;
 
-        .contenedor {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            text-decoration: none;
-            color: $negro;
+        li {
+            list-style-type: none;
 
-            .title {
-                text-align: center;
-                font-family: $fuentePrincipal;
-
-                span {
-                    font-size: 2rem;
-                    margin-bottom: 2rem;
-                }
-            }
-
-            img {
-                height: 10rem;
-            }
-        }
-
-        .ul {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            padding: 0;
-
-            li {
-                list-style-type: none;
-
-                .link {
-                    text-decoration: none;
-                }
+            .link {
+                text-decoration: none;
             }
         }
     }
-
-
 }
