@@ -4,10 +4,13 @@ import ItemCount from '../ItemCount/ItemCount'
 import classes from './ItemDetail.module.scss'
 import { useState } from 'react'
 import Button from '../Button/Button'
+import { useCart } from '../../context/CartContext'
 
 const ItemDetail = ({ id, name, img, description, stock, price }) => {
 
     const [quantity, setQuantity] = useState(0)
+
+    const { addItem } = useCart()
 
     const handleOnAdd = (quantity) => {
         const objProduct = {
@@ -17,7 +20,7 @@ const ItemDetail = ({ id, name, img, description, stock, price }) => {
             quantity
         }
 
-        console.log('Se agregó correctamente: ', objProduct)
+        addItem(objProduct)
         setQuantity(quantity)
     }
 
