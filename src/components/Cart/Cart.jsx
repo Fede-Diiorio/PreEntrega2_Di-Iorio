@@ -1,7 +1,6 @@
 import CartItem from "../CartItem/CartItem"
 import { useCart } from "../../context/CartContext"
 import Button from "../Button/Button"
-import { Link } from "react-router-dom"
 import classes from './Cart.module.scss'
 import DollarToPesoPrice from '../DollarToPesoPrice/DollarToPesoPrice'
 import { priceFormat } from "../../helpers/priceFormat"
@@ -14,7 +13,7 @@ const Cart = () => {
         return (
             <div className={classes.container}>
                 <h2>No tiene productos agregados</h2>
-                <Link to='/'><Button>Ver Productos</Button></Link>
+                <Button to='/'>Ver Productos</Button>
             </div>
         )
     }

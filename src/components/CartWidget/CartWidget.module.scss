@@ -1,41 +1,16 @@
-.link {
-    color: $blanco;
-    background-color: $primario;
-    padding: .5rem 1rem;
-    border: 2px solid $secundario;
-    border-radius: .5rem;
+.container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
     transition: all .3s ease-in-out;
-    width: 7rem;
 
-
-    &:hover {
-        background-color: $primarioOscuro;
-        border: 2px solid $primario;
-
-        .cart {
-            color: $secundarioOscuro;
-            scale: 1.1;
-        }
-
-        p {
-            color: $secundarioOscuro;
-        }
+    .cart {
+        font-size: 3rem;
     }
 
-    .container {
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-        transition: all .3s ease-in-out;
-
-        .cart {
-            font-size: 3rem;
-        }
-
-        p {
-            margin: 0;
-        }
-
-
+    p {
+        margin: 0;
     }
+
+
 }

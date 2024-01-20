@@ -11,24 +11,11 @@
         justify-content: space-between;
         align-items: center;
 
-        button {
-            background-color: $primario;
-            padding: .5rem 1rem;
-            border: 2px solid $secundario;
-            border-radius: .5rem;
-            transition: all .3s ease-in-out;
-            width: 7rem;
-
-            &:hover {
-                background-color: $primarioOscuro;
-                border: 2px solid $primario;
-
-                .hamburgerMenu {
-                    scale: 1.1;
-                    color: $secundarioOscuro;
-                }
-            }
+        .navbar {
+            width: 100%;
+            background-color: $secundarioOscuro;
         }
+
 
         .hamburgerMenu {
             color: $blanco;
@@ -56,6 +43,10 @@
             img {
                 height: 6rem;
             }
+        }
+
+        .noDisplay {
+            width: 7rem;
         }
 
     }
