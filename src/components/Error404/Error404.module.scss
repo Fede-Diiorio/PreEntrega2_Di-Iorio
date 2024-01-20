@@ -1,8 +1,22 @@
-container {
+.container {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     gap: 1rem;
-    background-color: red;
+
+    .sadFace {
+        font-size: 20rem;
+        margin-top: 5rem;
+    }
+
+    h2 {
+        margin: 0;
+        font-size: 5rem;
+    }
+
+    p {
+        font-size: 2rem;
+        columns: $gris;
+    }
 }
