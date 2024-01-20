@@ -10,7 +10,6 @@ const Header = () => {
                 <div className='container'>
 
                     <div className={classes.container}>
-                        <div></div>
                         <div >
                             <Link to='/' className={classes.titleContainer}>
                                 <h1 className={classes.title}>Plataforma</h1>

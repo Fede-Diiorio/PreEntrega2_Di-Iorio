@@ -5,6 +5,7 @@
     border: 2px solid $secundario;
     border-radius: .5rem;
     transition: all .3s ease-in-out;
+    width: 7rem;
 
 
     &:hover {
@@ -34,5 +35,7 @@
         p {
             margin: 0;
         }
+
+
     }
 }

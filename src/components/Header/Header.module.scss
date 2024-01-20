@@ -1,5 +1,10 @@
 .background {
+    background-color: $blanco;
+    z-index: 3;
     border-bottom: 2px solid $secundarioOscuro;
+    box-shadow: 0 4px 20px 11px $grisOscuro;
+    position: sticky;
+    top: 0;
 
     .container {
         display: flex;
@@ -28,8 +33,7 @@
             }
         }
 
-        .cartWidget {
-            margin-left: 20rem;
-        }
     }
+
+
 }
