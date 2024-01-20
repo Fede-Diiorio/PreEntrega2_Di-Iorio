@@ -11,6 +11,31 @@
         justify-content: space-between;
         align-items: center;
 
+        button {
+            background-color: $primario;
+            padding: .5rem 1rem;
+            border: 2px solid $secundario;
+            border-radius: .5rem;
+            transition: all .3s ease-in-out;
+            width: 7rem;
+
+            &:hover {
+                background-color: $primarioOscuro;
+                border: 2px solid $primario;
+
+                .hamburgerMenu {
+                    scale: 1.1;
+                    color: $secundarioOscuro;
+                }
+            }
+        }
+
+        .hamburgerMenu {
+            color: $blanco;
+            font-size: 3rem;
+            transition: all .3s ease-in-out;
+        }
+
         .titleContainer {
             display: flex;
             justify-content: center;

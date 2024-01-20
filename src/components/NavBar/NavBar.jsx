@@ -1,6 +1,5 @@
 import classes from './NavBar.module.scss'
 import Button from '../Button/Button'
-import { Link } from 'react-router-dom'
 
 const NavBar = () => {
     return (
@@ -8,9 +7,9 @@ const NavBar = () => {
 
             <nav>
                 <ul className={classes.ul}>
-                    <li><Link className={classes.link} to='/category/Remeras'><Button>Remeras</Button></Link></li>
-                    <li><Link className={classes.link} to='/category/Colgantes'><Button>Colgantes</Button></Link></li>
-                    <li><Link className={classes.link} to='/category/Varitas'><Button>Varitas</Button></Link></li>
+                    <li><Button to='/category/Colgantes'>Colgantes</Button></li>
+                    <li><Button to='/category/Remeras'>Remeras</Button></li>
+                    <li><Button to='/category/Varitas'>Varitas</Button></li>
                 </ul>
             </nav>
 

@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom'
 import DollarToPesoPrice from '../DollarToPesoPrice/DollarToPesoPrice'
 import ItemCount from '../ItemCount/ItemCount'
 import classes from './ItemDetail.module.scss'
@@ -38,7 +37,7 @@ const ItemDetail = ({ id, name, img, description, stock, price }) => {
                 </div>
                 <div className={classes.itemCount}>
                     {
-                        quantity === 0 ? (<ItemCount stock={stock} onAdd={handleOnAdd} />) : (<Link to={'/cart'}><Button>Finalizar Compra</Button></Link>)
+                        quantity === 0 ? (<ItemCount stock={stock} onAdd={handleOnAdd} />) : (<Button to={'/cart'}>Finalizar Compra</Button>)
 
                     }
 
