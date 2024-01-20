@@ -4,10 +4,15 @@ import Button from "../Button/Button"
 import classes from './Cart.module.scss'
 import DollarToPesoPrice from '../DollarToPesoPrice/DollarToPesoPrice'
 import { priceFormat } from "../../helpers/priceFormat"
+import { useEffect } from "react"
 
 const Cart = () => {
 
     const { cart, clearCart, totalQuantity, totalPrice } = useCart()
+
+    useEffect(() => {
+        document.title = 'Plataforma 9 3/4 | Carrito'
+    })
 
     if (totalQuantity === 0) {
         return (
@@ -20,6 +25,7 @@ const Cart = () => {
 
     return (
         <div className='container'>
+            <h2>Productos agregados</h2>
             {cart.map(prod => <CartItem key={prod.id} {...prod} />)}
             <div className={classes.nav}>
                 <Button onClick={clearCart} className={classes.button}>Vaciar Carrito</Button>

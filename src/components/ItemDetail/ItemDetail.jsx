@@ -37,7 +37,7 @@ const ItemDetail = ({ id, name, img, description, stock, price }) => {
                 </div>
                 <div className={classes.itemCount}>
                     {
-                        quantity === 0 ? (<ItemCount stock={stock} onAdd={handleOnAdd} />) : (<Button to={'/cart'}>Finalizar Compra</Button>)
+                        quantity === 0 ? (<ItemCount stock={stock} onAdd={handleOnAdd} />) : (<div className={classes.buyNav}> <Button to={'/'}>Seguir Comprando</Button> <Button to={'/cart'}>Finalizar Compra</Button></div>)
 
                     }
 
