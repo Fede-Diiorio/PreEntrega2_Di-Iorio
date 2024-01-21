@@ -1,4 +1,5 @@
 import { createContext, useContext, useState } from "react"
+import { useNotification } from "../notification/Notification"
 
 const CartContext = createContext({
     cart: [],
@@ -11,13 +12,16 @@ const CartContext = createContext({
 
 export const CartProvider = ({ children }) => {
 
+    const { showNotification } = useNotification()
+
     const [cart, setCart] = useState([])
 
     const addItem = (productToAdd) => {
         if (!isInCart(productToAdd.id)) {
             setCart(prev => [...prev, productToAdd])
+            showNotification('success', 'Agregado correctamente.')
         } else {
-            console.error('El producto ya está agregado')
+            showNotification('error', `El producto ya está en el carrito.`)
         }
     }
 

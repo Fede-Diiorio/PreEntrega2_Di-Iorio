@@ -29,6 +29,7 @@
             align-items: center;
             text-decoration: none;
             color: $negro;
+            transition: all .3s ease-in-out;
 
             .title {
                 text-align: center;
@@ -42,6 +43,10 @@
 
             img {
                 height: 6rem;
+            }
+
+            &:hover {
+                scale: 1.1;
             }
         }
 

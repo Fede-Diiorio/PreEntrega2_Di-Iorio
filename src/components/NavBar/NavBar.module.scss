@@ -9,8 +9,8 @@
     padding: 2rem;
     border-radius: 2rem;
     position: absolute;
-    top: 10rem;
-    left: 30rem;
+    top: 10vh;
+    left: 15vw;
 
     li {
         list-style-type: none;
@@ -18,5 +18,11 @@
         .link {
             text-decoration: none;
         }
+    }
+}
+
+@media (max-width: 1600px) {
+    .ul {
+        left: 5vw;
     }
 }

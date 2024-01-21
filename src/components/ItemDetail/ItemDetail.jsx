@@ -11,6 +11,7 @@ const ItemDetail = ({ id, name, img, description, stock, price }) => {
 
     const { addItem } = useCart()
 
+
     const handleOnAdd = (quantity) => {
         const objProduct = {
             id,
