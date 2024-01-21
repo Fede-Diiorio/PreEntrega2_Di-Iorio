@@ -1,6 +1,7 @@
 import { createContext, useContext } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import classes from './Notification.module.scss'
 
 const NotificationContext = createContext({
     showNotification: () => { },
@@ -14,7 +15,7 @@ export const NotificationProvider = ({ children }) => {
 
     return (
         <NotificationContext.Provider value={{ showNotification }}>
-            <ToastContainer />
+            <ToastContainer className={classes.toastify} />
             {children}
         </NotificationContext.Provider>
     );
