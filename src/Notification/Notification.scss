@@ -1,0 +1,23 @@
+.button {
+    color: $blanco;
+    background-color: $primario;
+    padding: .5rem 1rem;
+    font-size: 1.4rem;
+    border: 2px solid $secundario;
+    border-radius: 1rem;
+    min-width: 7rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: all .3s ease-in-out;
+
+
+    &:hover {
+        background-color: $primarioOscuro;
+        color: $secundario;
+        border: 2px solid $primario;
+        cursor: pointer;
+        scale: 1.1;
+    }
+
+}
