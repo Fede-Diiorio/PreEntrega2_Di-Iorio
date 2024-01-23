@@ -3,7 +3,6 @@ import { FaTrashCan } from "react-icons/fa6";
 import { priceFormat } from '../../helpers/priceFormat';
 import { useCart } from '../../context/CartContext';
 import Swal from 'sweetalert2';
-import { useEffect } from 'react';
 import { useNotification } from '../../notification/Notification';
 
 const CartItem = ({ img, name, price, quantity, id }) => {
@@ -24,10 +23,15 @@ const CartItem = ({ img, name, price, quantity, id }) => {
                 text: "¿Deseas eiminar este producto del carrito?",
                 icon: "warning",
                 showCancelButton: true,
+                buttonsStyling: false,
                 confirmButtonColor: "#3085d6",
                 cancelButtonColor: "#d33",
                 confirmButtonText: "Sí, eliminar",
-                cancelButtonText: "Cancelar"
+                cancelButtonText: "Cancelar",
+                customClass: {
+                    confirmButton: 'button confirm',
+                    cancelButton: 'button cancel'
+                }
             }).then((result) => {
                 if (result.isConfirmed) {
                     showNotification('success', 'Eliminado correctamente')

@@ -36,7 +36,7 @@ const Notification = ({ notificationData }) => {
             buttonsStyling: false,
             confirmButtonText: 'OK',
             customClass: {
-                confirmButton: 'button',
+                confirmButton: 'button confirm',
             },
         })
     }
