@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react"
+import { createContext, useContext, useEffect, useState } from "react"
 import { useNotification } from "../notification/Notification"
 
 const CartContext = createContext({

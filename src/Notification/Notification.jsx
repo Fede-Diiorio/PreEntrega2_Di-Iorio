@@ -14,12 +14,14 @@ const Notification = ({ notificationData }) => {
         error: 'error',
         info: 'info',
         question: 'question',
+        warning: 'warning'
     }
     const title = {
         success: '¡Exitos!',
         error: 'Error :(',
         info: 'Información',
         question: 'Pregunta:',
+        warning: 'warning'
     }
 
     useEffect(() => {
