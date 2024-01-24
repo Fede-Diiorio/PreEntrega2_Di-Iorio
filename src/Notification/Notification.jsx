@@ -30,7 +30,7 @@ const Notification = ({ notificationData }) => {
 
     const showAlert = () => {
         Swal.fire({
-            title: title[notificationData.type],
+            // title: title[notificationData.type],
             text: notificationData.text,
             icon: icon[notificationData.type],
             buttonsStyling: false,
@@ -44,15 +44,12 @@ const Notification = ({ notificationData }) => {
 
 export const NotificationProvider = ({ children }) => {
     const [notificationData, setNotificationData] = useState({
-        type: 'success',
+        type: '',
         text: ''
     })
 
     const showNotification = (type, text) => {
         setNotificationData({ type, text })
-        setTimeout(() => {
-            setNotificationData({ type, text: '' })
-        }, 3000)
     }
 
     return (
