@@ -1,5 +1,6 @@
-import { createContext, useContext, useEffect, useState } from "react"
-import { useNotification } from "../notification/Notification"
+import { createContext, useContext, useState } from "react"
+import { useNotification } from "../Notification/NotificationService"
+import Swal from "sweetalert2"
 
 const CartContext = createContext({
     cart: [],
@@ -62,7 +63,23 @@ export const CartProvider = ({ children }) => {
     const totalPrice = getTotalPrice()
 
     const clearCart = () => {
-        setCart([])
+        Swal.fire({
+            title: '¿Estás seguro?',
+            text: '¿Deseas vaciar el carrito?',
+            icon: 'warning',
+            showCancelButton: true,
+            buttonsStyling: false,
+            confirmButtonText: 'Sí, vaciar',
+            cancelButtonText: 'Cancelar',
+            customClass: {
+                confirmButton: 'button confirm',
+                cancelButton: 'button cancel',
+            },
+        }).then((result) => {
+            if (result.isConfirmed) {
+                setCart([])
+            }
+        });
     }
 
     return (

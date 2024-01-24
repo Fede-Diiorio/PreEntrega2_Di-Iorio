@@ -5,7 +5,7 @@ import ItemListContainer from "./components/ItemListContainer/ItemListContainer"
 import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailContainer"
 import Error404 from "./components/Error404/Error404"
 import Cart from "./components/Cart/Cart"
-import { NotificationProvider } from "./notification/Notification"
+import { NotificationProvider } from "./Notification/NotificationService"
 
 function App() {
   return (

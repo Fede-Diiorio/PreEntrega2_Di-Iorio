@@ -4,7 +4,7 @@ import { FaTrashCan } from 'react-icons/fa6';
 import { priceFormat } from '../../helpers/priceFormat';
 import Swal from 'sweetalert2';
 import { useCart } from '../../context/CartContext';
-import { useNotification } from '../../notification/Notification';
+import { useNotification } from '../../Notification/NotificationService';
 
 const CartItem = ({ img, name, price, quantity, id }) => {
     const { removeItem } = useCart();
@@ -13,12 +13,10 @@ const CartItem = ({ img, name, price, quantity, id }) => {
     const handleDeleteConfirmation = () => {
         Swal.fire({
             title: '¿Estás seguro?',
-            text: '¿Deseas eliminar este producto del carrito?',
+            text: `¿Deseas eliminar ${name} del carrito?`,
             icon: 'warning',
             showCancelButton: true,
             buttonsStyling: false,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
             confirmButtonText: 'Sí, eliminar',
             cancelButtonText: 'Cancelar',
             customClass: {

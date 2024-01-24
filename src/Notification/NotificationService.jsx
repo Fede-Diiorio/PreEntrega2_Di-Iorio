@@ -1,7 +1,7 @@
 import { useState, createContext, useContext } from "react";
 import Swal from "sweetalert2";
 import { useEffect } from "react";
-import './Notification.scss';
+import './NotificationService.scss';
 
 const NotificationContext = createContext({
     showNotification: () => { }
