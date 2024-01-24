@@ -30,7 +30,7 @@ const Notification = ({ notificationData }) => {
 
     const showAlert = () => {
         Swal.fire({
-            // title: title[notificationData.type],
+            title: title[notificationData.type],
             text: notificationData.text,
             icon: icon[notificationData.type],
             buttonsStyling: false,
