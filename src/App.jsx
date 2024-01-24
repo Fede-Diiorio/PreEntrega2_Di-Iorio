@@ -6,12 +6,14 @@ import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailCont
 import Error404 from "./components/Error404/Error404"
 import Cart from "./components/Cart/Cart"
 import { NotificationProvider } from "./notification/Notification"
+// import { ConfirmNotificationProvider } from "./Notification/confirmNotification"
 
 function App() {
   return (
     <>
       <BrowserRouter>
         <NotificationProvider>
+          {/* <ConfirmNotificationProvider> */}
           <CartProvider>
             <Header />
             <Routes>
@@ -22,6 +24,7 @@ function App() {
               <Route path="*" element={<Error404 />} />
             </Routes>
           </CartProvider>
+          {/* </ConfirmNotificationProvider> */}
         </NotificationProvider>
       </BrowserRouter>
     </>
