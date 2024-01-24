@@ -1,16 +1,18 @@
 import { useEffect, useState } from "react"
-import { getProducts, getProductsByCategory } from "../../asyncMock"
 import ItemList from "../ItemList/ItemList"
 import TileChange from "../TitleChange/TitelChange"
 import { useParams } from "react-router-dom"
+import { db } from '../../services/firebase/firebaseConfig'
+import { getDocs, collection, query, where } from "firebase/firestore"
+import { useNotification } from '../../Notification/NotificationService'
 
 const ItemListContainer = ({ greeting }) => {
 
     const [loading, setLoading] = useState(true)
-
     const [products, setProducts] = useState([])
-
     const { categoryId } = useParams()
+    const { showNotification } = useNotification()
+
 
     useEffect(() => {
         if (categoryId) document.title = 'Plataforma 9 3/4 | ' + categoryId
@@ -20,18 +22,22 @@ const ItemListContainer = ({ greeting }) => {
         }
     })
 
-
     useEffect(() => {
-        const asyncFunction = categoryId ? getProductsByCategory : getProducts
 
-        asyncFunction(categoryId).then(response => {
-            setProducts(response)
+        const productsCollection = categoryId ? query(collection(db, 'products'), where('category', '==', categoryId)) : collection(db, 'products')
+
+        getDocs(productsCollection).then(querySnapshot => {
+            const productsAddapted = querySnapshot.docs.map(doc => {
+                const filds = doc.data()
+                return { id: doc.id, ...filds }
+            })
+            setProducts(productsAddapted)
         }).catch(error => {
-            console.error(error)
+            showNotification('error', 'Hubo un error de conexion')
         }).finally(() => {
             setLoading(false)
         })
-    }, [categoryId])
+    })
 
     if (loading) {
         return <h2>Cargando...</h2>

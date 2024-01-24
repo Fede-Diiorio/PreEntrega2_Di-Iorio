@@ -1,15 +1,16 @@
 import { useEffect, useState } from "react"
-import { getProductsById } from "../../asyncMock"
 import ItemDetail from "../ItemDetail/ItemDetail"
 import { useParams } from "react-router-dom"
+import { db } from '../../services/firebase/firebaseConfig'
+import { getDoc, doc } from "firebase/firestore"
+import { useNotification } from "../../Notification/NotificationService"
 
 const ItemDetailContainer = () => {
 
     const [loading, setLoadign] = useState(true)
-
     const [product, setProduct] = useState(null)
-
     const { id } = useParams()
+    const { showNotification } = useNotification()
 
     useEffect(() => {
         if (product) document.title = product.name
@@ -20,10 +21,16 @@ const ItemDetailContainer = () => {
     })
 
     useEffect(() => {
-        getProductsById(id).then(response => {
-            setProduct(response)
+        setLoadign(true)
+
+        const productDocument = doc(db, 'products', id)
+
+        getDoc(productDocument).then(queryDocumentSnapshot => {
+            const filds = queryDocumentSnapshot.data()
+            const productAddapted = { id: queryDocumentSnapshot.id, ...filds }
+            setProduct(productAddapted)
         }).catch(error => {
-            console.error(error)
+            showNotification('error', 'Hubo un error')
         }).finally(() => {
             setLoadign(false)
         })
