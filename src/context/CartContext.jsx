@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useState } from "react"
-import { useNotification } from "../notification/Notification"
+import { useNotification } from "../Notification/NotificationService"
 
 const CartContext = createContext({
     cart: [],
