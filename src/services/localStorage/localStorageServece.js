@@ -17,10 +17,10 @@ function saveCartToLocalStorage(id, name, price, quantity, img) {
     }
 }
 
-function getCartToLocalStorage() {
-    const cartLocalStorage = JSON.parse(localStorage.getItem('cart'))
-    return cart = cartLocalStorage ? cartLocalStorage : []
+function getCartFromLocalStorage() {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    return cart;
 }
 
 export { saveCartToLocalStorage }
-export { getCartToLocalStorage }
+export { getCartFromLocalStorage }
