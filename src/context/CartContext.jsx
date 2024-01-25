@@ -1,7 +1,7 @@
 import { createContext, useContext, useEffect, useState } from "react"
 import { useNotification } from "../Notification/NotificationService"
 import Swal from "sweetalert2"
-import { getCartFromLocalStorage } from "../services/localStorage/localStorageServece"
+import { getCartFromLocalStorage, removeProductFromLocalStorage } from "../services/localStorage/localStorageServece"
 
 const CartContext = createContext({
     cart: [],
@@ -40,6 +40,7 @@ export const CartProvider = ({ children }) => {
         const cartUpdate = cart.filter(prod => prod.id !== id)
         console.log(`id del prod: ${id}`)
         setCart(cartUpdate)
+        removeProductFromLocalStorage(id)
     }
 
     const getTotalQuantity = () => {

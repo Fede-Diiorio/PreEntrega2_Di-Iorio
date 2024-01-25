@@ -22,5 +22,13 @@ function getCartFromLocalStorage() {
     return cart;
 }
 
+function removeProductFromLocalStorage(id) {
+    const cart = getCartFromLocalStorage()
+    const updatedCart = cart.filter(prod => prod.id !== id);
+
+    localStorage.setItem('cart', JSON.stringify(updatedCart));
+}
+
 export { saveCartToLocalStorage }
 export { getCartFromLocalStorage }
+export { removeProductFromLocalStorage }
