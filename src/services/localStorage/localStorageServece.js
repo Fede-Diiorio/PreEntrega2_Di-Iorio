@@ -1,25 +1,26 @@
-function saveToLocalStorage(img, name, price, quantity, id) {
+function saveCartToLocalStorage(id, name, price, quantity, img) {
     const saveProduct = {
         id: id,
-        img: img,
         name: name,
         price: price,
-        quantity: quantity
+        quantity: quantity,
+        img: img
     }
 
-    if (cart === null) {
-        cart = [saveProduct]
-    } else {
-        const findProduct = cart.find(prod => {
-            return prod.name === saveProduct.name
-        })
-        if (findProduct === 1) {
-            cart.push(saveProduct)
-        }
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    const findProduct = cart.find(prod => prod.name === saveProduct.name);
+
+    if (!findProduct) {
+        cart.push(saveProduct);
+        localStorage.setItem('cart', JSON.stringify(cart));
     }
-    localStorage.setItem('cart', JSON.stringify(cart))
 }
 
-const cart = []
+function getCartToLocalStorage() {
+    const cartLocalStorage = JSON.parse(localStorage.getItem('cart'))
+    return cart = cartLocalStorage ? cartLocalStorage : []
+}
 
-export { saveToLocalStorage }
+export { saveCartToLocalStorage }
+export { getCartToLocalStorage }
