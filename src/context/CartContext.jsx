@@ -1,7 +1,7 @@
 import { createContext, useContext, useEffect, useState } from "react"
 import { useNotification } from "../Notification/NotificationService"
 import Swal from "sweetalert2"
-import { getCartFromLocalStorage, removeProductFromLocalStorage } from "../services/localStorage/localStorageServece"
+import { getCartFromLocalStorage, removeProductFromLocalStorage, clearCartFromLocalStorage } from "../services/localStorage/localStorageServece"
 
 const CartContext = createContext({
     cart: [],
@@ -83,6 +83,7 @@ export const CartProvider = ({ children }) => {
         }).then((result) => {
             if (result.isConfirmed) {
                 setCart([])
+                clearCartFromLocalStorage()
             }
         });
     }

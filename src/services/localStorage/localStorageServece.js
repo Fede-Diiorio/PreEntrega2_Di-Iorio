@@ -29,6 +29,11 @@ function removeProductFromLocalStorage(id) {
     localStorage.setItem('cart', JSON.stringify(updatedCart));
 }
 
+function clearCartFromLocalStorage() {
+    localStorage.setItem('cart', JSON.stringify([]))
+}
+
 export { saveCartToLocalStorage }
 export { getCartFromLocalStorage }
 export { removeProductFromLocalStorage }
+export { clearCartFromLocalStorage }
