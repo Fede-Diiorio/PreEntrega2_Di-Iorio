@@ -7,12 +7,9 @@ import { useCart } from '../../context/CartContext'
 import { useLocalStorage } from '../../LocalStorageContext/LocalStorageContext'
 
 const ItemDetail = ({ id, name, img, description, stock, price }) => {
-
     const [quantity, setQuantity] = useState(0)
-
     const { addItem } = useCart()
     const { saveCartToLocalStorage } = useLocalStorage()
-
 
     const handleOnAdd = (quantity) => {
         const objProduct = {
@@ -44,7 +41,6 @@ const ItemDetail = ({ id, name, img, description, stock, price }) => {
                         quantity === 0 ? (<ItemCount stock={stock} onAdd={handleOnAdd} />) : (<div className={classes.buyNav}> <Button to={'/'}>Seguir Comprando</Button> <Button to={'/cart'}>Finalizar Compra</Button></div>)
 
                     }
-
                 </div>
             </div>
         </div>

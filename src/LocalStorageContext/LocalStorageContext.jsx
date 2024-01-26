@@ -10,13 +10,6 @@ const LocalStorageContext = createContext({
 export const LocalStorageProvider = ({ children }) => {
 
     const saveCartToLocalStorage = (saveProduct) => {
-        // const saveProduct = {
-        //     id: id,
-        //     name: name,
-        //     price: price,
-        //     quantity: quantity,
-        //     img: img
-        // }
 
         let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
@@ -28,8 +21,13 @@ export const LocalStorageProvider = ({ children }) => {
         }
     }
 
+    const getCartFromLocalStorage = () => {
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        return cart
+    }
+
     return (
-        <LocalStorageContext.Provider value={{ saveCartToLocalStorage }}>
+        <LocalStorageContext.Provider value={{ saveCartToLocalStorage, getCartFromLocalStorage }}>
             {children}
         </LocalStorageContext.Provider>
     )

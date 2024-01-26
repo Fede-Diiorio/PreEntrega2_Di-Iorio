@@ -1,5 +1,6 @@
-import { createContext, useContext, useState } from "react"
+import { createContext, useContext, useEffect, useState } from "react"
 import { useNotification } from "../Notification/NotificationService"
+import { useLocalStorage } from "../LocalStorageContext/LocalStorageContext"
 import Swal from "sweetalert2"
 
 const CartContext = createContext({
@@ -12,10 +13,14 @@ const CartContext = createContext({
 })
 
 export const CartProvider = ({ children }) => {
-
-    const { showNotification } = useNotification()
-
     const [cart, setCart] = useState([])
+    const { showNotification } = useNotification()
+    const { getCartFromLocalStorage } = useLocalStorage()
+
+    useEffect(() => {
+        const cartFromLocalStorage = getCartFromLocalStorage()
+        setCart(cartFromLocalStorage)
+    }, [])
 
     const addItem = (productToAdd) => {
         if (!isInCart(productToAdd.id)) {
