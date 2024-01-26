@@ -33,7 +33,7 @@ const ItemListContainer = ({ greeting }) => {
             })
             setProducts(productsAddapted)
         }).catch(error => {
-            showNotification('error', 'Hubo un error de conexion')
+            showNotification('error', 'No se puede acceder al base de datos')
         }).finally(() => {
             setLoading(false)
         })

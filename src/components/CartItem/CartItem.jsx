@@ -5,10 +5,13 @@ import { priceFormat } from '../../helpers/priceFormat';
 import Swal from 'sweetalert2';
 import { useCart } from '../../context/CartContext';
 import { useNotification } from '../../Notification/NotificationService';
+import { useLocalStorage } from '../../LocalStorageContext/LocalStorageContext';
 
 const CartItem = ({ img, name, price, quantity, id }) => {
     const { removeItem } = useCart();
     const { showNotification } = useNotification();
+    const { removeProductFromLocalStorage } = useLocalStorage()
+
 
     const handleDeleteConfirmation = () => {
         Swal.fire({
@@ -33,6 +36,7 @@ const CartItem = ({ img, name, price, quantity, id }) => {
     const handleDeleteItem = () => {
         showNotification('success', 'Eliminado correctamente');
         removeItem(id);
+        removeProductFromLocalStorage(id)
     };
 
     return (

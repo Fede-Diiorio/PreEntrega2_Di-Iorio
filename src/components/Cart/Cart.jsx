@@ -7,7 +7,6 @@ import { priceFormat } from "../../helpers/priceFormat"
 import { useEffect } from "react"
 
 const Cart = () => {
-
     const { cart, clearCart, totalQuantity, totalPrice } = useCart()
 
     useEffect(() => {

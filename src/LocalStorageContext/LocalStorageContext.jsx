@@ -26,8 +26,15 @@ export const LocalStorageProvider = ({ children }) => {
         return cart
     }
 
+    const removeProductFromLocalStorage = (id) => {
+        const cart = getCartFromLocalStorage()
+        const updateCart = cart.filter(prod => prod.id !== id)
+
+        localStorage.setItem('cart', JSON.stringify(updateCart))
+    }
+
     return (
-        <LocalStorageContext.Provider value={{ saveCartToLocalStorage, getCartFromLocalStorage }}>
+        <LocalStorageContext.Provider value={{ saveCartToLocalStorage, getCartFromLocalStorage, removeProductFromLocalStorage }}>
             {children}
         </LocalStorageContext.Provider>
     )
