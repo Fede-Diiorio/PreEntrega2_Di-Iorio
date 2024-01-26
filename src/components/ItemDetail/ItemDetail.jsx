@@ -4,12 +4,14 @@ import classes from './ItemDetail.module.scss'
 import { useState } from 'react'
 import Button from '../Button/Button'
 import { useCart } from '../../context/CartContext'
+import { useLocalStorage } from '../../LocalStorageContext/LocalStorageContext'
 
 const ItemDetail = ({ id, name, img, description, stock, price }) => {
 
     const [quantity, setQuantity] = useState(0)
 
     const { addItem } = useCart()
+    const { saveCartToLocalStorage } = useLocalStorage()
 
 
     const handleOnAdd = (quantity) => {
@@ -22,6 +24,7 @@ const ItemDetail = ({ id, name, img, description, stock, price }) => {
         }
 
         addItem(objProduct)
+        saveCartToLocalStorage(objProduct)
         setQuantity(quantity)
     }
 
