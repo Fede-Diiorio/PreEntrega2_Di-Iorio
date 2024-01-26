@@ -1,7 +1,6 @@
 import { createContext, useContext, useEffect, useState } from "react"
 import { useNotification } from "../Notification/NotificationService"
 import Swal from "sweetalert2"
-import { getCartFromLocalStorage, removeProductFromLocalStorage, clearCartFromLocalStorage } from "../services/localStorage/localStorageServece"
 
 const CartContext = createContext({
     cart: [],
@@ -18,11 +17,6 @@ export const CartProvider = ({ children }) => {
 
     const [cart, setCart] = useState([])
 
-    useEffect(() => {
-        const cartFromLocalStorage = getCartFromLocalStorage()
-        setCart(cartFromLocalStorage)
-    }, [])
-
     const addItem = (productToAdd) => {
         if (!isInCart(productToAdd.id)) {
             setCart(prev => [...prev, productToAdd])
@@ -38,9 +32,7 @@ export const CartProvider = ({ children }) => {
 
     const removeItem = (id) => {
         const cartUpdate = cart.filter(prod => prod.id !== id)
-        console.log(`id del prod: ${id}`)
         setCart(cartUpdate)
-        removeProductFromLocalStorage(id)
     }
 
     const getTotalQuantity = () => {
@@ -83,7 +75,6 @@ export const CartProvider = ({ children }) => {
         }).then((result) => {
             if (result.isConfirmed) {
                 setCart([])
-                clearCartFromLocalStorage()
             }
         });
     }
