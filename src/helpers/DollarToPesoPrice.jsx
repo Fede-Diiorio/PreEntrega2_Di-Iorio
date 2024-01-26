@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { priceFormat } from "../../helpers/priceFormat";
+import { priceFormat } from "./priceFormat";
 
 const DollarToPesoPrice = ({ price }) => {
 

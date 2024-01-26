@@ -2,6 +2,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom"
 import { CartProvider } from "./context/CartContext"
 import { LocalStorageProvider } from "./LocalStorageContext/LocalStorageContext"
 import { NotificationProvider } from "./Notification/NotificationService"
+
 import Header from "./components/Header/Header"
 import ItemListContainer from "./components/ItemListContainer/ItemListContainer"
 import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailContainer"

@@ -1,4 +1,4 @@
-import DollarToPesoPrice from '../DollarToPesoPrice/DollarToPesoPrice'
+import DollarToPesoPrice from '../../helpers/DollarToPesoPrice'
 import ItemCount from '../ItemCount/ItemCount'
 import classes from './ItemDetail.module.scss'
 import { useState } from 'react'

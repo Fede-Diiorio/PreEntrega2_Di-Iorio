@@ -2,7 +2,7 @@ import CartItem from "../CartItem/CartItem"
 import { useCart } from "../../context/CartContext"
 import Button from "../Button/Button"
 import classes from './Cart.module.scss'
-import DollarToPesoPrice from '../DollarToPesoPrice/DollarToPesoPrice'
+import DollarToPesoPrice from '../../helpers/DollarToPesoPrice'
 import { priceFormat } from "../../helpers/priceFormat"
 import { useEffect } from "react"
 import { useLocalStorage } from "../../LocalStorageContext/LocalStorageContext"

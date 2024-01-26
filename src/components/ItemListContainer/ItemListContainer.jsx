@@ -37,7 +37,7 @@ const ItemListContainer = ({ greeting }) => {
         }).finally(() => {
             setLoading(false)
         })
-    })
+    }, [])
 
     if (loading) {
         return <h2>Cargando...</h2>
