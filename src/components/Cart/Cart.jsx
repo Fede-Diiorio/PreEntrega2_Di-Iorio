@@ -5,9 +5,16 @@ import classes from './Cart.module.scss'
 import DollarToPesoPrice from '../DollarToPesoPrice/DollarToPesoPrice'
 import { priceFormat } from "../../helpers/priceFormat"
 import { useEffect } from "react"
+import { useLocalStorage } from "../../LocalStorageContext/LocalStorageContext"
 
 const Cart = () => {
     const { cart, clearCart, totalQuantity, totalPrice } = useCart()
+    const { clearCartFromLocalStorage } = useLocalStorage()
+
+    const handleClearCart = () => {
+        clearCart()
+        clearCartFromLocalStorage()
+    }
 
     useEffect(() => {
         document.title = 'Plataforma 9 3/4 | Carrito'
@@ -27,7 +34,7 @@ const Cart = () => {
             <h2>Productos agregados</h2>
             {cart.map(prod => <CartItem key={prod.id} {...prod} />)}
             <div className={classes.nav}>
-                <Button onClick={clearCart} className={classes.button}>Vaciar Carrito</Button>
+                <Button onClick={handleClearCart} className={classes.button}>Vaciar Carrito</Button>
                 <Button to={'/checkout'}>Checkout</Button>
                 <div className={classes.priceContainer}>
                     <h4><strong>Total USD: </strong>$ {priceFormat(totalPrice)}</h4>

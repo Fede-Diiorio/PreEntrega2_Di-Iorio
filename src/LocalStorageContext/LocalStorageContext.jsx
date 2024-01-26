@@ -33,8 +33,12 @@ export const LocalStorageProvider = ({ children }) => {
         localStorage.setItem('cart', JSON.stringify(updateCart))
     }
 
+    const clearCartFromLocalStorage = () => {
+        localStorage.setItem('cart', JSON.stringify([]))
+    }
+
     return (
-        <LocalStorageContext.Provider value={{ saveCartToLocalStorage, getCartFromLocalStorage, removeProductFromLocalStorage }}>
+        <LocalStorageContext.Provider value={{ saveCartToLocalStorage, getCartFromLocalStorage, removeProductFromLocalStorage, clearCartFromLocalStorage }}>
             {children}
         </LocalStorageContext.Provider>
     )
