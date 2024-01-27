@@ -35,7 +35,7 @@ const Cart = () => {
             {cart.map(prod => <CartItem key={prod.id} {...prod} />)}
             <div className={classes.nav}>
                 <Button onClick={handleClearCart} className={classes.button}>Vaciar Carrito</Button>
-                <Button to={'/checkout'}>Checkout</Button>
+                <Button to={'/checkout'}>checkout</Button>
                 <div className={classes.priceContainer}>
                     <h4><strong>Total USD: </strong>$ {priceFormat(totalPrice)}</h4>
                     <h4><strong>Total ARS: </strong>$ <DollarToPesoPrice price={totalPrice} /></h4>

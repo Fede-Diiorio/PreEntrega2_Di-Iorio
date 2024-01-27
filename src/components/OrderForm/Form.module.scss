@@ -1,12 +1,13 @@
 .contact {
-    text-align: center;
-    margin: 0 auto;
 
     .form {
+        text-align: center;
+        margin: 0 auto;
         padding: 1rem;
         border-radius: 2rem;
         border: 2px solid $primario;
         box-shadow: 5px 7px 9px 2px $grisOscuro;
+        max-width: 60rem;
 
         legend {
             font-size: 1.8rem;
@@ -16,21 +17,7 @@
             color: $primario;
         }
 
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-
-            .gridContainer {
-                display: flex;
-                flex-direction: column;
-                justify-content: space-between;
-
-                .field {
-                    label {
-                        margin-bottom: 1rem;
-                    }
-                }
-            }
+        .container {
 
             .field {
                 display: flex;
@@ -47,8 +34,7 @@
                     font-size: 1.4rem;
                 }
 
-                input,
-                textarea {
+                input {
                     width: 100%;
                     border-radius: 1rem;
                     border: 1px solid $primarioOscuro;
@@ -58,6 +44,31 @@
                         padding-left: .5rem;
                     }
                 }
+            }
+        }
+
+        .submit {
+            color: $blanco;
+            background-color: $primario;
+            padding: .5rem 1rem;
+            font-size: 1.4rem;
+            border: 2px solid $secundario;
+            border-radius: 1rem;
+            min-width: 7rem;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-weight: bold;
+            transition: all .3s ease-in-out;
+            margin: 2rem;
+            display: flex;
+
+
+            &:hover {
+                background-color: $primarioOscuro;
+                color: $secundario;
+                border: 2px solid $primario;
+                cursor: pointer;
+                scale: 1.1;
             }
         }
 

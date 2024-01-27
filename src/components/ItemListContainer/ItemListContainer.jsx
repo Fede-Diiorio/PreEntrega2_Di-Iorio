@@ -20,7 +20,7 @@ const ItemListContainer = ({ greeting }) => {
         return () => {
             document.title = 'Plataforma 9 3/4'
         }
-    })
+    }, [categoryId])
 
     useEffect(() => {
 
@@ -37,7 +37,7 @@ const ItemListContainer = ({ greeting }) => {
         }).finally(() => {
             setLoading(false)
         })
-    }, [])
+    }, [categoryId])
 
     if (loading) {
         return <h2>Cargando...</h2>
