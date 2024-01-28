@@ -6,6 +6,7 @@ import { collection, getDocs, where, query, documentId, writeBatch, addDoc } fro
 import { useNotification } from '../../Notification/NotificationService'
 import { useState } from 'react'
 import { useLocalStorage } from '../../LocalStorageContext/LocalStorageContext'
+import OrderView from '../OrderView/OrderView'
 
 const Checkout = () => {
     const [loading, setLoading] = useState(false)
@@ -70,7 +71,7 @@ const Checkout = () => {
     }
 
     if (orderId) {
-        return <h2>El id de su compra es: {orderId}</h2>
+        return <OrderView orderId={orderId} />
     }
 
     return (
