@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import ItemList from "../ItemList/ItemList"
-import TileChange from "../TitleChange/TitelChange"
+import TitleChange from "../TitleChange/TitelChange"
 import { useParams } from "react-router-dom"
 import { db } from '../../services/firebase/firebaseConfig'
 import { getDocs, collection, query, where } from "firebase/firestore"
@@ -47,7 +47,7 @@ const ItemListContainer = ({ greeting }) => {
         <div className="container">
             <h2>{greeting + (categoryId ?? '')}</h2>
             <ItemList products={products} />
-            <TileChange title={'Plataforma 9 3/4 | Inicio'} />
+            <TitleChange title={'Plataforma 9 3/4 | Inicio'} />
         </div>
     )
 }

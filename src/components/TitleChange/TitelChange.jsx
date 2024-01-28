@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-const TileChange = ({ title }) => {
+const TitleChange = ({ title }) => {
     useEffect(() => {
         // Actualiza el título del documento
         document.title = title;
@@ -30,4 +30,4 @@ const TileChange = ({ title }) => {
     return <></>;
 };
 
-export default TileChange;
+export default TitleChange;

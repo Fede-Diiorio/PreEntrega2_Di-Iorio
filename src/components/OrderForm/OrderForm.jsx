@@ -29,7 +29,6 @@ const OrderForm = (onCreate) => {
                             <label>E-mail:</label>
                             <input type="email" placeholder="Tu E-mail" />
                         </div>
-
                     </div>
 
                     <input type="submit" value='Generar Orden' className={classes.submit} />

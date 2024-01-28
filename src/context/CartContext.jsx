@@ -1,7 +1,6 @@
 import { createContext, useContext, useEffect, useState } from "react"
 import { useNotification } from "../Notification/NotificationService"
 import { useLocalStorage } from "../LocalStorageContext/LocalStorageContext"
-import Swal from "sweetalert2"
 
 const CartContext = createContext({
     cart: [],
@@ -65,23 +64,7 @@ export const CartProvider = ({ children }) => {
     const totalPrice = getTotalPrice()
 
     const clearCart = () => {
-        Swal.fire({
-            title: '¿Estás seguro?',
-            text: '¿Deseas vaciar el carrito?',
-            icon: 'warning',
-            showCancelButton: true,
-            buttonsStyling: false,
-            confirmButtonText: 'Sí, vaciar',
-            cancelButtonText: 'Cancelar',
-            customClass: {
-                confirmButton: 'button confirm',
-                cancelButton: 'button cancel',
-            },
-        }).then((result) => {
-            if (result.isConfirmed) {
-                setCart([])
-            }
-        });
+        setCart([])
     }
 
     return (

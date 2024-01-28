@@ -5,7 +5,7 @@ import { NotificationProvider } from "./Notification/NotificationService"
 import Header from "./components/Header/Header"
 import ItemListContainer from "./components/ItemListContainer/ItemListContainer"
 import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailContainer"
-import Cart from "./components/Cart/Cart"
+import CartView from "./components/CartView/CartView"
 import Error404 from "./components/Error404/Error404"
 import Checkout from "./components/Checkout/Checkout"
 
@@ -21,7 +21,7 @@ function App() {
                 <Route path="/" element={<ItemListContainer greeting={"¡Bienvenidos!"} />} />
                 <Route path="/category/:categoryId" element={<ItemListContainer greeting={"Productos Filtrados: "} />} />
                 <Route path="/detail/:id" element={<ItemDetailContainer />} />
-                <Route path="/cart" element={<Cart />} />
+                <Route path="/cart" element={<CartView />} />
                 <Route path="/checkout" element={<Checkout />} />
                 <Route path="*" element={<Error404 />} />
               </Routes>
