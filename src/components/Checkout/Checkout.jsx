@@ -18,11 +18,7 @@ const Checkout = () => {
         setLoading(true)
         try {
             const objOrder = {
-                buyer: {
-                    name: 'Fede Di Iorio',
-                    mail: 'correro@correo.com',
-                    phone: '123456789'
-                }, //userData
+                buyer: userData,
                 item: cart,
                 total: totalPrice
             }
@@ -81,10 +77,7 @@ const Checkout = () => {
         <>
             <h2>Checkout</h2>
             <div className={classes.container}>
-
-                {/* <OrderForm onCreate={createOrder} /> */}
-                <button onClick={createOrder}>Generar orden</button>
-
+                <OrderForm onCreate={createOrder} />
             </div>
 
         </>
