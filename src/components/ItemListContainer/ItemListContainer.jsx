@@ -44,11 +44,11 @@ const ItemListContainer = ({ greeting }) => {
     }
 
     return (
-        <div className="container">
+        <section className="container">
             <h2>{greeting + (categoryId ?? '')}</h2>
             <ItemList products={products} />
             <TitleChange title={'Plataforma 9 3/4 | Inicio'} />
-        </div>
+        </section>
     )
 }
 

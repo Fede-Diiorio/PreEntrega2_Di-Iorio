@@ -60,7 +60,7 @@ const OrderForm = ({ onCreate }) => {
 
                         <div className={classes.field}>
                             <label>Teléfono:</label>
-                            <input type="tel" placeholder="Tu Teléfono" value={phone} onChange={handlePhoneChange} />
+                            <input type="tel" pattern="[0-9]*" placeholder="Tu Teléfono" value={phone} onChange={handlePhoneChange} />
                         </div>
 
                         <div className={classes.field}>

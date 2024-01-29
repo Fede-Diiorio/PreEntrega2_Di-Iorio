@@ -11,7 +11,7 @@ import Checkout from "./components/Checkout/Checkout"
 
 function App() {
   return (
-    <>
+    <main>
       <BrowserRouter>
         <LocalStorageProvider>
           <NotificationProvider>
@@ -29,7 +29,7 @@ function App() {
           </NotificationProvider>
         </LocalStorageProvider>
       </BrowserRouter>
-    </>
+    </main>
   )
 }
 

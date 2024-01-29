@@ -44,15 +44,15 @@ const CartView = () => {
 
     if (totalQuantity === 0) {
         return (
-            <div className={classes.container}>
+            <section className={classes.container}>
                 <h2>No tiene productos agregados</h2>
                 <Button to='/'>Ver Productos</Button>
-            </div>
+            </section>
         )
     }
 
     return (
-        <div className='container'>
+        <section className='container'>
             <h2>Productos agregados</h2>
             {cart.map(prod => <CartItem key={prod.id} {...prod} />)}
             <div className={classes.nav}>
@@ -64,7 +64,7 @@ const CartView = () => {
                 </div>
             </div>
             <TitleChange />
-        </div>
+        </section>
     )
 }
 

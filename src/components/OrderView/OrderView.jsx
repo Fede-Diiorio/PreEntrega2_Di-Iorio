@@ -37,7 +37,7 @@ const OrderView = ({ orderId }) => {
     return (
         <div className="container">
             <div className={classes.container}>
-                <h2>Gracias por comprar con nosotros</h2>
+                <h2>¡Gracias por comprar con nosotros!</h2>
                 <p className={classes.order}>el ID de su compra es: <strong>{orderId}</strong></p>
                 <div className={classes.orderData}>
                     {buyer && (

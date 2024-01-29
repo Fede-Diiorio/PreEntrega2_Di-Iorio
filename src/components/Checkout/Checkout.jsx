@@ -75,13 +75,13 @@ const Checkout = () => {
     }
 
     return (
-        <>
+        <section>
             <h2>Checkout</h2>
             <div className={classes.container}>
                 <OrderForm onCreate={createOrder} />
             </div>
 
-        </>
+        </section>
     )
 }
 

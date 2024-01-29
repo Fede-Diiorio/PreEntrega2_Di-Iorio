@@ -4,12 +4,12 @@ import { TbMoodSadDizzy } from "react-icons/tb";
 
 const Error404 = () => {
     return (
-        <div className={classes.container}>
+        <section className={classes.container}>
             <TbMoodSadDizzy className={classes.sadFace} />
             <h2>404</h2>
             <p>El sitio no funciona</p>
             <Button to={'/'}>Volver</Button>
-        </div>
+        </section>
     )
 }
 
