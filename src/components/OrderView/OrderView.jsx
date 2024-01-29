@@ -4,9 +4,9 @@ import { db } from '../../services/firebase/firebaseConfig'
 import { useEffect, useState } from 'react'
 import { doc, getDoc } from 'firebase/firestore'
 import { useNotification } from '../../Notification/NotificationService'
+import DollarToPesoPrice from '../../helpers/DollarToPesoPrice'
 
 const OrderView = ({ orderId }) => {
-    const [buyOrder, setBuyOrder] = useState(null)
     const [buyer, setBuyer] = useState(null)
     const [item, setItem] = useState(null)
     const [total, setTotal] = useState(null)
@@ -31,37 +31,38 @@ const OrderView = ({ orderId }) => {
                 showNotification('error', 'Error al generar el comprobante')
             }
         }
-        setBuyOrder(getDocument(orderId))
-    }, [])
+        getDocument(orderId)
+    }, [orderId, showNotification])
 
     return (
         <div className="container">
             <div className={classes.container}>
                 <h2>Gracias por comprar con nosotros</h2>
                 <p className={classes.order}>el ID de su compra es: <strong>{orderId}</strong></p>
-                {buyer && (
-                    <div>
-                        <h3>Datos del Comprador:</h3>
-                        <p>Nombre: {buyer.name}</p>
-                        <p>Teléfono: {buyer.phone}</p>
-                        <p>Email: {buyer.email}</p>
-                    </div>
-                )}
-                {item && (
-                    <div>
-                        <h3>Detalles de la Compra:</h3>
-                        <ul>
-                            {item.map((product) => (
-                                <li key={product.id}>
-                                    Producto: {product.name}, Cantidad: {product.quantity}, Precio Unitario: ${product.price}
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-                )}
+                <div className={classes.orderData}>
+                    {buyer && (
+                        <div className={classes.buyer}>
+                            <h3>Datos del Comprador:</h3>
+                            <p>Nombre: {buyer.name}</p>
+                            <p>Teléfono: {buyer.phone}</p>
+                            <p>Email: {buyer.email}</p>
+                        </div>
+                    )}
+                    {item && (
+                        <div className={classes.item}>
+                            <h3>Detalles de la Compra:</h3>
+                            <ul>
+                                {item.map((product) => (
+                                    <li key={product.id}>
+                                        Producto: {product.name}, Cantidad: {product.quantity}
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                    )}
 
-                {total && <p>Total de la compra: ${total}</p>}
-
+                </div>
+                {total && <p className={classes.total}>Total de la compra: ${<DollarToPesoPrice price={total} />}</p>}
                 <p>Pronto nos pondremos en contacto con usted</p>
                 <Button to={'/'}>Volver al inicio</Button>
             </div>

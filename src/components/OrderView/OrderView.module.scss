@@ -6,9 +6,57 @@
     border: 2px solid $primario;
     box-shadow: 5px 7px 9px 2px $grisOscuro;
 
+    p {
+        margin-top: 1rem;
+    }
+
     .order {
         strong {
             font-size: 1.6rem;
         }
     }
+
+    .total {
+        display: inline;
+        text-align: center;
+        padding: 1rem;
+        border-radius: 2rem;
+        border: 2px solid $primario;
+        margin: 3rem auto;
+    }
+
+    .orderData {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        margin-bottom: 2rem;
+
+
+        .buyer {
+
+            h3 {
+                margin: 1rem 0 0 0;
+            }
+
+            p {
+                margin: 0;
+            }
+        }
+
+        .item {
+            h3 {
+                margin: 1rem 0 0 0;
+            }
+
+            ul {
+
+                li {
+                    font-size: 1.6rem;
+                    text-align: left;
+                }
+            }
+        }
+
+    }
+
+
 }
