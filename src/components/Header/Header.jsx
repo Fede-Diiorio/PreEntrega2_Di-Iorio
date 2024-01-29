@@ -11,6 +11,9 @@ import NavBar from '../NavBar/NavBar';
 const Header = () => {
     const { totalQuantity } = useCart();
     const [show, setShow] = useState(false);
+    const toggleNavBar = () => {
+        setShow((prev) => !prev);
+    };
 
     return (
         <>
@@ -28,7 +31,7 @@ const Header = () => {
                         </div>
                         {totalQuantity > 0 ? <CartWidget /> : <div className={classes.noDisplay}></div>}
                     </div>
-                    {show ? <NavBar /> : null}
+                    {show ? <NavBar toggleNavBar={toggleNavBar} /> : null}
                 </div>
             </header>
         </>
