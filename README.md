@@ -1,8 +1,20 @@
-# React + Vite
+# Plataforma 9 3/4
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este producto está en construcción
 
-Currently, two official plugins are available:
+## Correr de manera local
+```bash
+$ git clone https://github.com/Fede-Diiorio/ReactPF_Di-Iorio.git
+$ cd ReactPF_Di-Iorio
+$ npm install
+$ npm run dev
+```
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Construido Usando
+
+- [React + Vite](https://vitejs.dev/)
+- [SASS](https://sass-lang.com/)
+- [Firebase](https://firebase.com)
+- [Bootstrap](https://getbootstrap.com/)
+- [SweetAlert2](https://sweetalert2.github.io/)
+- [React-icons](https://react-icons.github.io/react-icons/)
