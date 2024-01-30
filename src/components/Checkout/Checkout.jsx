@@ -6,7 +6,7 @@ import { collection, getDocs, where, query, documentId, writeBatch, addDoc } fro
 import { useNotification } from '../../Notification/NotificationService'
 import { useState } from 'react'
 import { useLocalStorage } from '../../LocalStorageContext/LocalStorageContext'
-import OrderView from '../OrderView/OrderView'
+import OrderLogic from '../OrderLogic/OrderLogic'
 
 const Checkout = () => {
     const [loading, setLoading] = useState(false)
@@ -71,7 +71,7 @@ const Checkout = () => {
     }
 
     if (orderSnapshot) {
-        return <OrderView orderSnapshot={orderSnapshot} />
+        return <OrderLogic orderSnapshot={orderSnapshot} />
     }
 
     return (
