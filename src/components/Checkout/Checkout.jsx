@@ -10,7 +10,7 @@ import OrderView from '../OrderView/OrderView'
 
 const Checkout = () => {
     const [loading, setLoading] = useState(false)
-    const [orderId, setOrderId] = useState(null)
+    const [orderSnapshot, setOrderSnapshot] = useState(null)
     const { clearCartFromLocalStorage } = useLocalStorage()
     const { cart, totalPrice, clearCart } = useCart()
     const { showNotification } = useNotification()
@@ -51,9 +51,9 @@ const Checkout = () => {
                 batch.commit()
 
                 const orderCollection = collection(db, 'orders')
-                const { id } = await addDoc(orderCollection, objOrder)
+                const orderSnapshot = await addDoc(orderCollection, objOrder)
 
-                setOrderId(id)
+                setOrderSnapshot(orderSnapshot)
                 clearCart()
                 clearCartFromLocalStorage()
             } else {
@@ -70,8 +70,8 @@ const Checkout = () => {
         return <h2>Se está generando su orden...</h2>
     }
 
-    if (orderId) {
-        return <OrderView orderId={orderId} />
+    if (orderSnapshot) {
+        return <OrderView orderSnapshot={orderSnapshot} />
     }
 
     return (
