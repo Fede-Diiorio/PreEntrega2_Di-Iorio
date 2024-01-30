@@ -52,7 +52,7 @@ const CartView = () => {
                     <h4><strong>Total ARS: </strong>$ <DollarToPesoPrice price={totalPrice} /></h4>
                 </div>
             </div>
-            <TitleChange title={'Plataforma 9 3/4 | Carrito'} />
+            <TitleChange />
         </section>
     )
 }
