@@ -1,6 +1,6 @@
-import classes from './Item.module.scss'
 import Button from '../Button/Button'
 import DollarToPesoPrice from '../../helpers/DollarToPesoPrice'
+import classes from './Item.module.scss'
 
 const Item = ({ id, name, img, price, stock }) => {
     return (

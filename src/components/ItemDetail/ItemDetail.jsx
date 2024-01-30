@@ -1,10 +1,10 @@
+import { useLocalStorage } from '../../LocalStorageContext/LocalStorageContext'
+import { useCart } from '../../context/CartContext'
+import { useState } from 'react'
 import DollarToPesoPrice from '../../helpers/DollarToPesoPrice'
 import ItemCount from '../ItemCount/ItemCount'
-import classes from './ItemDetail.module.scss'
-import { useState } from 'react'
 import Button from '../Button/Button'
-import { useCart } from '../../context/CartContext'
-import { useLocalStorage } from '../../LocalStorageContext/LocalStorageContext'
+import classes from './ItemDetail.module.scss'
 
 const ItemDetail = ({ id, name, img, description, stock, price }) => {
     const [quantity, setQuantity] = useState(0)

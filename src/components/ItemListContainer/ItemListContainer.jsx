@@ -1,10 +1,10 @@
-import { useEffect, useState } from "react"
-import ItemList from "../ItemList/ItemList"
-import TitleChange from "../TitleChange/TitelChange"
-import { useParams } from "react-router-dom"
 import { db } from '../../services/firebase/firebaseConfig'
 import { getDocs, collection, query, where } from "firebase/firestore"
+import { useEffect, useState } from "react"
+import { useParams } from "react-router-dom"
 import { useNotification } from '../../Notification/NotificationService'
+import ItemList from "../ItemList/ItemList"
+import TitleChange from "../TitleChange/TitelChange"
 
 const ItemListContainer = ({ greeting }) => {
 
@@ -45,7 +45,7 @@ const ItemListContainer = ({ greeting }) => {
 
     return (
         <section className="container">
-            <h2>{greeting + (categoryId ?? '')}</h2>
+            <h2>{greeting}</h2>
             <ItemList products={products} />
             <TitleChange title={'Plataforma 9 3/4 | Inicio'} />
         </section>

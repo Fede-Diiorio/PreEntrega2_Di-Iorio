@@ -1,13 +1,13 @@
-import CartItem from "../CartItem/CartItem"
 import { useCart } from "../../context/CartContext"
-import Button from "../Button/Button"
-import classes from './CartView.module.scss'
-import DollarToPesoPrice from '../../helpers/DollarToPesoPrice'
-import { priceFormat } from "../../helpers/priceFormat"
 import { useEffect } from "react"
 import { useLocalStorage } from "../../LocalStorageContext/LocalStorageContext"
-import TitleChange from "../TitleChange/TitelChange"
 import { useNotification } from "../../Notification/NotificationService"
+import { priceFormat } from "../../helpers/priceFormat"
+import DollarToPesoPrice from '../../helpers/DollarToPesoPrice'
+import CartItem from "../CartItem/CartItem"
+import Button from "../Button/Button"
+import TitleChange from "../TitleChange/TitelChange"
+import classes from './CartView.module.scss'
 
 const CartView = () => {
     const { cart, clearCart, totalQuantity, totalPrice } = useCart()

@@ -1,6 +1,6 @@
-import classes from './ItemCount.module.scss'
 import { useState } from 'react'
 import { FaPlus, FaMinus } from "react-icons/fa";
+import classes from './ItemCount.module.scss'
 
 const ItemCount = ({ initial = 1, stock, onAdd }) => {
 

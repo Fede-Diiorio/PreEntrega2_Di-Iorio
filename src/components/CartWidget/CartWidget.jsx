@@ -1,7 +1,7 @@
-import { FiShoppingCart } from "react-icons/fi";
-import classes from "./CartWidget.module.scss"
 import { useCart } from '../../context/CartContext'
+import { FiShoppingCart } from "react-icons/fi";
 import Button from "../Button/Button";
+import classes from "./CartWidget.module.scss"
 
 const Cart = () => {
 

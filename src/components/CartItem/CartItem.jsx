@@ -1,10 +1,9 @@
-import React from 'react'
-import classes from './CartItem.module.scss'
-import { FaTrashCan } from 'react-icons/fa6'
-import { priceFormat } from '../../helpers/priceFormat'
 import { useCart } from '../../context/CartContext'
 import { useNotification } from '../../Notification/NotificationService'
 import { useLocalStorage } from '../../LocalStorageContext/LocalStorageContext'
+import { priceFormat } from '../../helpers/priceFormat'
+import { FaTrashCan } from 'react-icons/fa6'
+import classes from './CartItem.module.scss'
 
 const CartItem = ({ img, name, price, quantity, id }) => {
     const { removeItem } = useCart();

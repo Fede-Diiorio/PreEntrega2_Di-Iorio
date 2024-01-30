@@ -1,8 +1,8 @@
-import classes from './OrderView.module.scss'
 import Button from '../Button/Button'
 import DollarToPesoPrice from '../../helpers/DollarToPesoPrice'
 import OrderViewBuyer from '../OrderViewBuyer/OrderViewBuyer'
 import OrderViewItem from '../OrderViewItem/OrderViewItem'
+import classes from './OrderView.module.scss'
 
 const OrderView = ({ orderId, buyer, item, total }) => {
     return (

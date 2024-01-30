@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
-import classes from './OrderForm.module.scss'
 import { useNotification } from '../../Notification/NotificationService'
+import classes from './OrderForm.module.scss'
 
 const OrderForm = ({ onCreate }) => {
     const [name, setName] = useState('')

@@ -1,12 +1,12 @@
+import { useCart } from '../../context/CartContext';
 import { useState } from 'react';
-import icono from './assets/icono.png';
-import classes from './Header.module.scss';
 import { Link } from 'react-router-dom';
 import { TbMenu2 } from 'react-icons/tb';
-import { useCart } from '../../context/CartContext';
-import CartWidget from '../CartWidget/CartWidget';
 import Button from '../Button/Button';
 import NavBar from '../NavBar/NavBar';
+import CartWidget from '../CartWidget/CartWidget';
+import icono from './assets/icono.png';
+import classes from './Header.module.scss';
 
 const Header = () => {
     const { totalQuantity } = useCart();

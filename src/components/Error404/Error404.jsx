@@ -1,6 +1,6 @@
-import classes from './Error404.module.scss'
-import Button from '../Button/Button'
 import { TbMoodSadDizzy } from "react-icons/tb";
+import Button from '../Button/Button'
+import classes from './Error404.module.scss'
 
 const Error404 = () => {
     return (

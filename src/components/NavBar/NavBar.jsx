@@ -1,21 +1,39 @@
-import classes from './NavBar.module.scss'
+import { db } from '../../services/firebase/firebaseConfig';
+import { collection, getDocs } from "firebase/firestore"
+import { useEffect, useState } from 'react';
 import Button from '../Button/Button'
+import classes from './NavBar.module.scss'
 
 const NavBar = ({ toggleNavBar }) => {
     const handleButtonClick = () => {
         toggleNavBar();
     };
 
+    const [categories, setCategories] = useState([])
+
+    useEffect(() => {
+        const categoriesCollection = collection(db, 'categories')
+        getDocs(categoriesCollection).then(querySnapshot => {
+            const categoriesAdapted = querySnapshot.docs.map(doc => {
+                const fields = doc.data()
+                return { id: doc.id, ...fields }
+            })
+            setCategories(categoriesAdapted)
+        })
+    }, [])
+
     return (
-        <aside className={classes.aside}>
+        <section className={classes.aside}>
             <nav>
                 <ul className={classes.ul}>
-                    <li><Button to='/category/Colgantes' onClick={handleButtonClick}>Colgantes</Button></li>
-                    <li><Button to='/category/Remeras' onClick={handleButtonClick}>Remeras</Button></li>
-                    <li><Button to='/category/Varitas' onClick={handleButtonClick}>Varitas</Button></li>
+                    {
+                        categories.map(cat => (
+                            <li key={cat.id}><Button to={`/category/${cat.slug}`} onClick={handleButtonClick}>{cat.name}</Button></li>
+                        ))
+                    }
                 </ul>
             </nav>
-        </aside>
+        </section>
     )
 }
 
