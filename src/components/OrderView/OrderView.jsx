@@ -5,6 +5,7 @@ import { db } from '../../services/firebase/firebaseConfig'
 import { collection, doc, getDoc, query, where } from 'firebase/firestore'
 import DollarToPesoPrice from '../../helpers/DollarToPesoPrice'
 import { useNotification } from '../../Notification/NotificationService'
+import OrderViewBuyer from '../OrderViewBuyer/OrderViewBuyer'
 
 const OrderView = ({ orderSnapshot }) => {
     const [buyer, setBuyer] = useState(null)
@@ -34,7 +35,6 @@ const OrderView = ({ orderSnapshot }) => {
                 showNotification('error', 'Error al obtener la información de la orden')
             }
         }
-
         fetchData()
     }, [orderSnapshot, showNotification])
 
@@ -46,14 +46,7 @@ const OrderView = ({ orderSnapshot }) => {
                     el ID de su compra es: <strong>{orderId}</strong>
                 </p>
                 <div className={classes.orderData}>
-                    {buyer && (
-                        <div className={classes.buyer}>
-                            <h3>Datos del Comprador:</h3>
-                            <p>Nombre: {buyer.name}</p>
-                            <p>Teléfono: {buyer.phone}</p>
-                            <p>Email: {buyer.email}</p>
-                        </div>
-                    )}
+                    {buyer && (<OrderViewBuyer buyer={buyer} />)}
                     {item && (
                         <div className={classes.item}>
                             <h3>Detalles de la Compra:</h3>
