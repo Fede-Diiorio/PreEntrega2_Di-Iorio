@@ -7,35 +7,24 @@ import { priceFormat } from "../../helpers/priceFormat"
 import { useEffect } from "react"
 import { useLocalStorage } from "../../LocalStorageContext/LocalStorageContext"
 import TitleChange from "../TitleChange/TitelChange"
-import Swal from "sweetalert2"
+import { useNotification } from "../../Notification/NotificationService"
 
 const CartView = () => {
     const { cart, clearCart, totalQuantity, totalPrice } = useCart()
     const { clearCartFromLocalStorage } = useLocalStorage()
-
-    const handleClearCartConfirmation = () => {
-        Swal.fire({
-            title: '¿Estás seguro?',
-            text: '¿Deseas vaciar el carrito?',
-            icon: 'warning',
-            showCancelButton: true,
-            buttonsStyling: false,
-            confirmButtonText: 'Sí, vaciar',
-            cancelButtonText: 'Cancelar',
-            customClass: {
-                confirmButton: 'button confirm',
-                cancelButton: 'button cancel',
-            },
-        }).then((result) => {
-            if (result.isConfirmed) {
-                handleClearCart()
-            }
-        });
-    }
+    const { showConfirmation } = useNotification()
 
     const handleClearCart = () => {
         clearCart()
         clearCartFromLocalStorage()
+    }
+
+    const handleClearCartConfirmation = () => {
+        showConfirmation({
+            text: '¿Deseas vaciar el carrito?',
+            confirmButton: 'Sí, vaciar',
+            addAction: handleClearCart
+        })
     }
 
     useEffect(() => {
@@ -63,7 +52,7 @@ const CartView = () => {
                     <h4><strong>Total ARS: </strong>$ <DollarToPesoPrice price={totalPrice} /></h4>
                 </div>
             </div>
-            <TitleChange />
+            <TitleChange title={'Plataforma 9 3/4 | Carrito'} />
         </section>
     )
 }

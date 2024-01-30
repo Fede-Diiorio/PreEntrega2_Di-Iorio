@@ -1,43 +1,29 @@
-import React from 'react';
-import classes from './CartItem.module.scss';
-import { FaTrashCan } from 'react-icons/fa6';
-import { priceFormat } from '../../helpers/priceFormat';
-import Swal from 'sweetalert2';
-import { useCart } from '../../context/CartContext';
-import { useNotification } from '../../Notification/NotificationService';
-import { useLocalStorage } from '../../LocalStorageContext/LocalStorageContext';
+import React from 'react'
+import classes from './CartItem.module.scss'
+import { FaTrashCan } from 'react-icons/fa6'
+import { priceFormat } from '../../helpers/priceFormat'
+import { useCart } from '../../context/CartContext'
+import { useNotification } from '../../Notification/NotificationService'
+import { useLocalStorage } from '../../LocalStorageContext/LocalStorageContext'
 
 const CartItem = ({ img, name, price, quantity, id }) => {
     const { removeItem } = useCart();
-    const { showNotification } = useNotification();
+    const { showNotification, showConfirmation } = useNotification();
     const { removeProductFromLocalStorage } = useLocalStorage()
 
-
-    const handleDeleteConfirmation = () => {
-        Swal.fire({
-            title: '¿Estás seguro?',
-            text: `¿Deseas eliminar ${name} del carrito?`,
-            icon: 'warning',
-            showCancelButton: true,
-            buttonsStyling: false,
-            confirmButtonText: 'Sí, eliminar',
-            cancelButtonText: 'Cancelar',
-            customClass: {
-                confirmButton: 'button confirm',
-                cancelButton: 'button cancel',
-            },
-        }).then((result) => {
-            if (result.isConfirmed) {
-                handleDeleteItem();
-            }
-        });
-    };
-
-    const handleDeleteItem = () => {
+    const deleteItem = () => {
         showNotification('success', 'Eliminado correctamente');
         removeItem(id);
         removeProductFromLocalStorage(id)
     };
+
+    const handleDeleteItem = () => {
+        showConfirmation({
+            text: `¿Desea eliminar ${name} del carrito?`,
+            confirmButton: 'Sí, eliminar',
+            addAction: deleteItem
+        });
+    }
 
     return (
         <div className={classes.container}>
@@ -53,7 +39,7 @@ const CartItem = ({ img, name, price, quantity, id }) => {
             <p>
                 <strong>Subtotal: </strong>$ {priceFormat(price * quantity)}
             </p>
-            <button onClick={handleDeleteConfirmation}>
+            <button onClick={handleDeleteItem}>
                 <FaTrashCan className={classes.icon} />
             </button>
         </div>
