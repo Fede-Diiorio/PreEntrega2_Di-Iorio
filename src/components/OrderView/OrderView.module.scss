@@ -29,34 +29,5 @@
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         margin-bottom: 2rem;
-
-
-        .buyer {
-
-            h3 {
-                margin: 1rem 0 0 0;
-            }
-
-            p {
-                margin: 0;
-            }
-        }
-
-        .item {
-            h3 {
-                margin: 1rem 0 0 0;
-            }
-
-            ul {
-
-                li {
-                    font-size: 1.6rem;
-                    text-align: left;
-                }
-            }
-        }
-
     }
-
-
 }

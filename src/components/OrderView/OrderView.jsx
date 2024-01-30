@@ -6,6 +6,7 @@ import { collection, doc, getDoc, query, where } from 'firebase/firestore'
 import DollarToPesoPrice from '../../helpers/DollarToPesoPrice'
 import { useNotification } from '../../Notification/NotificationService'
 import OrderViewBuyer from '../OrderViewBuyer/OrderViewBuyer'
+import OrderViewItem from '../OrderViewItem/OrderViewItem'
 
 const OrderView = ({ orderSnapshot }) => {
     const [buyer, setBuyer] = useState(null)
@@ -47,18 +48,7 @@ const OrderView = ({ orderSnapshot }) => {
                 </p>
                 <div className={classes.orderData}>
                     {buyer && (<OrderViewBuyer buyer={buyer} />)}
-                    {item && (
-                        <div className={classes.item}>
-                            <h3>Detalles de la Compra:</h3>
-                            <ul>
-                                {item.map((product) => (
-                                    <li key={product.id}>
-                                        Producto: {product.name}, Cantidad: {product.quantity}
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
-                    )}
+                    {item && (<OrderViewItem item={item} />)}
                 </div>
                 {total && <p className={classes.total}>Total de la compra: ${<DollarToPesoPrice price={total} />}</p>}
                 <p>Pronto nos pondremos en contacto con usted</p>
