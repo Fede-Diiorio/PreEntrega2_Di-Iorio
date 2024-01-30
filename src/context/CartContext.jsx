@@ -26,7 +26,18 @@ export const CartProvider = ({ children }) => {
             setCart(prev => [...prev, productToAdd])
             showNotification('success', 'Agregado correctamente.')
         } else {
-            showNotification('error', `El producto ya está en el carrito.`)
+            const cartUpdate = cart.map(prod => {
+                if (prod.id === productToAdd.id) {
+                    showNotification('success', 'Cantidad actualizada')
+                    return {
+                        ...prod,
+                        quantity: productToAdd.quantity,
+                    }
+                } else {
+                    return prod
+                }
+            })
+            setCart(cartUpdate)
         }
     }
 
@@ -67,8 +78,13 @@ export const CartProvider = ({ children }) => {
         setCart([])
     }
 
+    const getProductQuantity = (productId) => {
+        const product = cart.find(prod => prod.id === productId)
+        return product?.quantity
+    }
+
     return (
-        <CartContext.Provider value={{ cart, addItem, removeItem, totalQuantity, totalPrice, clearCart }}>
+        <CartContext.Provider value={{ cart, addItem, removeItem, totalQuantity, totalPrice, clearCart, getProductQuantity }}>
             {children}
         </CartContext.Provider>
 

@@ -7,8 +7,7 @@ import Button from '../Button/Button'
 import classes from './ItemDetail.module.scss'
 
 const ItemDetail = ({ id, name, img, description, stock, price }) => {
-    const [quantity, setQuantity] = useState(0)
-    const { addItem } = useCart()
+    const { addItem, getProductQuantity } = useCart()
     const { saveCartToLocalStorage } = useLocalStorage()
 
     const handleOnAdd = (quantity) => {
@@ -22,8 +21,9 @@ const ItemDetail = ({ id, name, img, description, stock, price }) => {
 
         addItem(objProduct)
         saveCartToLocalStorage(objProduct)
-        setQuantity(quantity)
     }
+
+    const productQuantity = getProductQuantity(id)
 
     return (
 
@@ -38,8 +38,7 @@ const ItemDetail = ({ id, name, img, description, stock, price }) => {
                 </div>
                 <div className={classes.itemCount}>
                     {
-                        quantity === 0 ? (<ItemCount stock={stock} onAdd={handleOnAdd} />) : (<div className={classes.buyNav}> <Button to={'/'}>Seguir Comprando</Button> <Button to={'/cart'}>Finalizar Compra</Button></div>)
-
+                        <ItemCount stock={stock} onAdd={handleOnAdd} initial={productQuantity} />
                     }
                 </div>
             </div>

@@ -50,7 +50,7 @@ const Notification = ({ notificationData }) => {
 
     useEffect(() => {
         showAlert();
-    }, []);
+    }, [notificationData]);
 
     const showAlert = () => {
         Swal.fire({
@@ -62,8 +62,8 @@ const Notification = ({ notificationData }) => {
             customClass: {
                 confirmButton: 'button confirm',
             },
-        });
-    };
+        })
+    }
 }
 
 export const NotificationProvider = ({ children }) => {
@@ -72,7 +72,7 @@ export const NotificationProvider = ({ children }) => {
         text: '',
         confirmButton: '',
         addAction: () => { }
-    });
+    })
 
     const showNotification = (type, text) => {
         setNotificationData({ type, text });
