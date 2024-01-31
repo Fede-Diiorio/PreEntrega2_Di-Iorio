@@ -19,7 +19,6 @@ const ItemListContainer = ({ greeting }) => {
     }, [categoryId])
 
     const asyncFunction = () => getProducts(categoryId)
-
     const { data: products, error, loading } = useAsync(asyncFunction, [categoryId])
 
     if (loading) {
