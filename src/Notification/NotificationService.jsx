@@ -8,9 +8,6 @@ const NotificationContext = createContext({
 });
 
 const ConfirmNotification = ({ notificationData }) => {
-    if (!notificationData || !notificationData.text) {
-        return null;
-    }
 
     Swal.fire({
         title: '¿Estás seguro?',
