@@ -1,8 +1,7 @@
-import { db } from '../../services/firebase/firebaseConfig'
-import { getDocs, collection, query, where } from "firebase/firestore"
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import { useNotification } from '../../Notification/NotificationService'
+import { getProducts } from "../../services/firebase/firestore/products"
 import ItemList from "../ItemList/ItemList"
 import TitleChange from "../TitleChange/TitelChange"
 
@@ -23,20 +22,16 @@ const ItemListContainer = ({ greeting }) => {
     }, [categoryId])
 
     useEffect(() => {
+        setLoading(true)
 
-        const productsCollection = categoryId ? query(collection(db, 'products'), where('category', '==', categoryId)) : collection(db, 'products')
-
-        getDocs(productsCollection).then(querySnapshot => {
-            const productsAddapted = querySnapshot.docs.map(doc => {
-                const filds = doc.data()
-                return { id: doc.id, ...filds }
-            })
-            setProducts(productsAddapted)
+        getProducts(categoryId).then(products => {
+            setProducts(products)
         }).catch(error => {
             showNotification('error', 'No se puede acceder al base de datos')
         }).finally(() => {
             setLoading(false)
         })
+
     }, [categoryId])
 
     if (loading) {
