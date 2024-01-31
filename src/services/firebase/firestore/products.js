@@ -14,3 +14,4 @@ export const getProducts = (categoryId) => {
         return error
     })
 }
+

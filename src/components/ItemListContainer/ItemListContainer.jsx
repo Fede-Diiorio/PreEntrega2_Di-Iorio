@@ -4,14 +4,11 @@ import { useNotification } from '../../Notification/NotificationService'
 import { getProducts } from "../../services/firebase/firestore/products"
 import ItemList from "../ItemList/ItemList"
 import TitleChange from "../TitleChange/TitelChange"
+import { useAsync } from "../../hooks/useAsync"
 
 const ItemListContainer = ({ greeting }) => {
-
-    const [loading, setLoading] = useState(true)
-    const [products, setProducts] = useState([])
     const { categoryId } = useParams()
     const { showNotification } = useNotification()
-
 
     useEffect(() => {
         if (categoryId) document.title = 'Plataforma 9 3/4 | ' + categoryId
@@ -21,21 +18,16 @@ const ItemListContainer = ({ greeting }) => {
         }
     }, [categoryId])
 
-    useEffect(() => {
-        setLoading(true)
+    const asyncFunction = () => getProducts(categoryId)
 
-        getProducts(categoryId).then(products => {
-            setProducts(products)
-        }).catch(error => {
-            showNotification('error', 'No se puede acceder al base de datos')
-        }).finally(() => {
-            setLoading(false)
-        })
-
-    }, [categoryId])
+    const { data: products, error, loading } = useAsync(asyncFunction, [categoryId])
 
     if (loading) {
         return <h2>Cargando...</h2>
+    }
+
+    if (error) {
+        showNotification('error', 'Hubo un error')
     }
 
     return (
