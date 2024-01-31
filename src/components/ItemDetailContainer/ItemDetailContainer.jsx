@@ -1,14 +1,11 @@
-import { db } from '../../services/firebase/firebaseConfig'
-import { getDoc, doc } from "firebase/firestore"
 import { useParams } from "react-router-dom"
 import { useNotification } from "../../Notification/NotificationService"
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
 import ItemDetail from "../ItemDetail/ItemDetail"
+import { getProductById } from '../../services/firebase/firestore/products'
+import { useAsync } from '../../hooks/useAsync'
 
 const ItemDetailContainer = () => {
-
-    const [loading, setLoadign] = useState(true)
-    const [product, setProduct] = useState(null)
     const { id } = useParams()
     const { showNotification } = useNotification()
 
@@ -20,28 +17,16 @@ const ItemDetailContainer = () => {
         }
     })
 
-    useEffect(() => {
-        setLoadign(true)
-
-        const productDocument = doc(db, 'products', id)
-
-        getDoc(productDocument).then(queryDocumentSnapshot => {
-            const filds = queryDocumentSnapshot.data()
-            const productAddapted = { id: queryDocumentSnapshot.id, ...filds }
-            setProduct(productAddapted)
-        }).catch(error => {
-            showNotification('error', 'Hubo un error')
-        }).finally(() => {
-            setLoadign(false)
-        })
-    }, [id])
+    const asyncFunction = () => getProductById(id)
+    console.log(getProductById(id))
+    const { data: product, error, loading } = useAsync(asyncFunction, [id])
 
     if (loading) {
         return <h2>Cargando...</h2>
     }
 
-    if (!product) {
-        return <h2>El producto no existe</h2>
+    if (error) {
+        showNotification('error', 'El producto no existe')
     }
 
 

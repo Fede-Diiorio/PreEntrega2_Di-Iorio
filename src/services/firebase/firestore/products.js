@@ -1,5 +1,5 @@
 import { db } from '../firebaseConfig'
-import { getDocs, collection, query, where } from "firebase/firestore"
+import { getDocs, collection, query, where, getDoc, doc } from "firebase/firestore"
 import { createProductAdaptedFromFireStore } from '../../../adapters/createProducAdapterFromFirestore'
 
 export const getProducts = (categoryId) => {
@@ -15,6 +15,14 @@ export const getProducts = (categoryId) => {
     })
 }
 
-export const getProductById = () => {
-
+export const getProductById = (id) => {
+    const productDocument = doc(db, 'products', id)
+    return getDoc(productDocument).then(queryDocumentSnapshot => {
+        const productAddapted = createProductAdaptedFromFireStore(queryDocumentSnapshot)
+        console.log(productAddapted)
+        return productAddapted
+    }).catch(error => {
+        return error
+    })
 }
+
