@@ -3,8 +3,12 @@ import DollarToPesoPrice from '../../helpers/DollarToPesoPrice'
 import OrderViewBuyer from '../OrderViewBuyer/OrderViewBuyer'
 import OrderViewItem from '../OrderViewItem/OrderViewItem'
 import classes from './OrderView.module.scss'
+import { useTitle } from '../../hooks/useTitle'
 
 const OrderView = ({ orderId, buyer, item, total }) => {
+
+    useTitle(true, 'Plataforma 9 3/4 | Oden de Compra', [])
+
     return (
         <div className="container">
             <div className={classes.container}>
