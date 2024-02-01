@@ -4,21 +4,16 @@ import { useEffect } from "react"
 import ItemDetail from "../ItemDetail/ItemDetail"
 import { getProductById } from '../../services/firebase/firestore/products'
 import { useAsync } from '../../hooks/useAsync'
+import { useTitle } from "../../hooks/useTitle"
 
 const ItemDetailContainer = () => {
     const { id } = useParams()
     const { showNotification } = useNotification()
 
-    useEffect(() => {
-        if (product) document.title = product.name
-
-        return () => {
-            document.title = 'Plataforma 9 3/4'
-        }
-    })
-
     const asyncFunction = () => getProductById(id)
     const { data: product, error, loading } = useAsync(asyncFunction, [id])
+
+    useTitle(product, `${product.name}`, [product]);
 
     if (loading) {
         return <h2>Cargando...</h2>
@@ -27,7 +22,6 @@ const ItemDetailContainer = () => {
     if (error) {
         showNotification('error', 'El producto no existe')
     }
-
 
     return (
         <section className='container'>

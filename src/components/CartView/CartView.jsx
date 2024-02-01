@@ -1,13 +1,12 @@
 import { useCart } from "../../context/CartContext"
-import { useEffect } from "react"
 import { useLocalStorage } from "../../LocalStorageContext/LocalStorageContext"
 import { useNotification } from "../../Notification/NotificationService"
 import { priceFormat } from "../../helpers/priceFormat"
 import DollarToPesoPrice from '../../helpers/DollarToPesoPrice'
 import CartItem from "../CartItem/CartItem"
 import Button from "../Button/Button"
-import TitleChange from "../TitleChange/TitelChange"
 import classes from './CartView.module.scss'
+import { useTitle } from "../../hooks/useTitle"
 
 const CartView = () => {
     const { cart, clearCart, totalQuantity, totalPrice } = useCart()
@@ -27,9 +26,7 @@ const CartView = () => {
         })
     }
 
-    useEffect(() => {
-        document.title = 'Plataforma 9 3/4 | Carrito'
-    }, [])
+    useTitle(cart, 'Plataforma 9 3/4 | Carrito', [cart]);
 
     if (totalQuantity === 0) {
         return (
@@ -52,7 +49,6 @@ const CartView = () => {
                     <h4><strong>Total ARS: </strong>$ <DollarToPesoPrice price={totalPrice} /></h4>
                 </div>
             </div>
-            <TitleChange />
         </section>
     )
 }
