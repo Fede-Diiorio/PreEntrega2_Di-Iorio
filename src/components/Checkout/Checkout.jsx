@@ -43,7 +43,6 @@ const Checkout = () => {
                     batch.update(doc.ref, { stock: stockDb - prodQuantity })
                 } else {
                     outOfStock.push({ id: doc.id, ...fields })
-                    console.log(outOfStock)
                 }
             })
 

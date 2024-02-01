@@ -19,7 +19,6 @@ const OrderLogic = ({ orderSnapshot }) => {
             try {
                 const orderRef = doc(db, 'orders', orderId)
                 const orderDoc = await getDoc(orderRef)
-                console.log(orderDoc)
 
                 if (orderDoc.exists()) {
                     const orderData = orderDoc.data()

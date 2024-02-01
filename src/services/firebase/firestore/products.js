@@ -19,7 +19,6 @@ export const getProductById = (id) => {
     const productDocument = doc(db, 'products', id)
     return getDoc(productDocument).then(queryDocumentSnapshot => {
         const productAddapted = createProductAdaptedFromFireStore(queryDocumentSnapshot)
-        console.log(productAddapted)
         return productAddapted
     }).catch(error => {
         return error
