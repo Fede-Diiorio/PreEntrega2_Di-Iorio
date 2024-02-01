@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { useNotification } from '../../Notification/NotificationService'
 import classes from './OrderForm.module.scss'
 import { useTitle } from '../../hooks/useTitle'
@@ -11,10 +11,6 @@ const OrderForm = ({ onCreate }) => {
     const [formSubmitted, setFormSubmitted] = useState(false)
 
     useTitle(true, `Plataforma 9 3/4 | Generar Orden`, []);
-
-    // useEffect(() => {
-    //     document.title = 'Plataforma 9 3/4 | Generar Orden'
-    // }, [])
 
     const handleNameChange = (e) => {
         setName(e.target.value)
