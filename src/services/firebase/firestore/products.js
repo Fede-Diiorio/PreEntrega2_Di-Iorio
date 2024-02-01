@@ -25,4 +25,3 @@ export const getProductById = (id) => {
         return error
     })
 }
-

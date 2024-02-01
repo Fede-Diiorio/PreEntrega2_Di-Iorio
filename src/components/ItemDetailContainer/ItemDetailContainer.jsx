@@ -18,7 +18,6 @@ const ItemDetailContainer = () => {
     })
 
     const asyncFunction = () => getProductById(id)
-    console.log(getProductById(id))
     const { data: product, error, loading } = useAsync(asyncFunction, [id])
 
     if (loading) {
