@@ -9,7 +9,6 @@ import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailCont
 import CartView from "./components/CartView/CartView"
 import Error404 from "./components/Error404/Error404"
 import Checkout from "./components/Checkout/Checkout"
-import TestComponent from "./components/TestComponent/TestComponent"
 
 function App() {
   return (
@@ -19,7 +18,6 @@ function App() {
           <PriceManagerProvider>
             <NotificationProvider>
               <CartProvider>
-                <TestComponent price={100} />
                 <Header />
                 <Routes>
                   <Route path="/" element={<ItemListContainer greeting={"¡Bienvenidos!"} />} />
