@@ -12,6 +12,10 @@ $ npm install
 $ npm run dev
 ```
 
+## Variables de Entorno
+
+Ver ['.env.exaple](https://github.com/Fede-Diiorio/ReactPF_Di-Iorio/blob/main/.env.example) como un ejemplo
+
 ## Construido Usando
 
 - [React + Vite](https://vitejs.dev/)
@@ -21,4 +25,10 @@ $ npm run dev
 - [SweetAlert2](https://sweetalert2.github.io/)
 - [React-icons](https://react-icons.github.io/react-icons/)
 
-### [Video Demostrativo](https://youtu.be/4s0HbG6DFTI)
+## Funcionamiento
+
+[Ver](https://youtu.be/4s0HbG6DFTI)
+
+## Testear Aplicación
+
+[Deploy](https://plataforma934.netlify.app/)
