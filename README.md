@@ -14,7 +14,7 @@ $ npm run dev
 
 ## Variables de Entorno
 
-Ver ['.env.exaple](https://github.com/Fede-Diiorio/ReactPF_Di-Iorio/blob/main/.env.example) como un ejemplo
+Ver [`.env.exaple`](https://github.com/Fede-Diiorio/ReactPF_Di-Iorio/blob/main/.env.example) como un ejemplo
 
 ## Construido Usando
 
