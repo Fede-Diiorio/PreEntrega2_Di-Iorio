@@ -1,7 +1,7 @@
 import { useCart } from '../../context/CartContext'
 import { useNotification } from '../../Notification/NotificationService'
 import { useLocalStorage } from '../../LocalStorageContext/LocalStorageContext'
-import { priceFormat } from '../../helpers/priceFormat'
+import { formatPrice } from '../../helpers/DollarToPesoPrice'
 import { FaTrashCan } from 'react-icons/fa6'
 import classes from './CartItem.module.scss'
 
@@ -29,14 +29,14 @@ const CartItem = ({ img, name, price, quantity, id }) => {
             <img className={classes.img} src={img} alt={`Imagen de ${name}`} />
             <h5>{name}</h5>
             <p>
-                <strong>Precio Unitario: </strong>$ {priceFormat(price)}
+                <strong>Precio Unitario: </strong>$ {formatPrice(price)}
             </p>
             <p>
                 <strong>Cantidad de Unidades: </strong>
                 {quantity}
             </p>
             <p>
-                <strong>Subtotal: </strong>$ {priceFormat(price * quantity)}
+                <strong>Subtotal: </strong>$ {formatPrice(price * quantity)}
             </p>
             <button onClick={handleDeleteItem}>
                 <FaTrashCan className={classes.icon} />

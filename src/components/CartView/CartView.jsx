@@ -1,7 +1,7 @@
 import { useCart } from "../../context/CartContext"
 import { useLocalStorage } from "../../LocalStorageContext/LocalStorageContext"
 import { useNotification } from "../../Notification/NotificationService"
-import { priceFormat } from "../../helpers/priceFormat"
+import { formatPrice } from "../../helpers/DollarToPesoPrice"
 import DollarToPesoPrice from '../../helpers/DollarToPesoPrice'
 import CartItem from "../CartItem/CartItem"
 import Button from "../Button/Button"
@@ -45,7 +45,7 @@ const CartView = () => {
                 <Button onClick={handleClearCartConfirmation} className={classes.button}>Vaciar Carrito</Button>
                 <Button to={'/checkout'}>checkout</Button>
                 <div className={classes.priceContainer}>
-                    <h4><strong>Total USD: </strong>$ {priceFormat(totalPrice)}</h4>
+                    <h4><strong>Total USD: </strong>$ {formatPrice(totalPrice)}</h4>
                     <h4><strong>Total ARS: </strong>$ <DollarToPesoPrice price={totalPrice} /></h4>
                 </div>
             </div>

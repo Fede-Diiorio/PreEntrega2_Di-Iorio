@@ -1,5 +1,10 @@
 import { useEffect, useState } from "react";
-import { priceFormat } from "./priceFormat";
+
+export const formatPrice = (number) => {
+    const numberWithDecimals = Number(number).toFixed(2);
+    const formattedNumber = numberWithDecimals.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    return formattedNumber;
+}
 
 const DollarToPesoPrice = ({ price }) => {
 
@@ -15,12 +20,7 @@ const DollarToPesoPrice = ({ price }) => {
 
     const convertion = price * usd
 
-    return (
-        <>
-            {priceFormat(convertion)}
-        </>
-    )
-
+    return formatPrice(convertion)
 }
 
 export default DollarToPesoPrice
