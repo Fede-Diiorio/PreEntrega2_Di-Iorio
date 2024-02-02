@@ -9,4 +9,4 @@ export const createProductAdaptedFromFireStore = (doc) => {
         description: fields.description,
         stock: fields.stock
     }
-} 
+}

@@ -18,7 +18,6 @@ const OrderView = ({ orderSnapshot }) => {
     const { showNotification } = useNotification()
     const [orderId, setOrderId] = useState(null)
 
-
     useEffect(() => {
         const fetchOrderData = async () => {
             try {

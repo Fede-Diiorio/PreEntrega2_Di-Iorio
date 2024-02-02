@@ -7,11 +7,11 @@ import classes from './CartItem.module.scss'
 
 const CartItem = ({ img, name, price, quantity, id }) => {
     const { removeItem } = useCart();
-    const { showNotification, showConfirmation } = useNotification();
+    const { showNotification, showConfirmation } = useNotification()
     const { removeProductFromLocalStorage } = useLocalStorage()
 
     const deleteItem = () => {
-        showNotification('success', 'Eliminado correctamente');
+        showNotification('success', 'Eliminado correctamente')
         removeItem(id);
         removeProductFromLocalStorage(id)
     };
@@ -42,7 +42,7 @@ const CartItem = ({ img, name, price, quantity, id }) => {
                 <FaTrashCan className={classes.icon} />
             </button>
         </div>
-    );
-};
+    )
+}
 
 export default CartItem;

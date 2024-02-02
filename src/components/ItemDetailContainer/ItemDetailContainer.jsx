@@ -1,6 +1,5 @@
 import { useParams } from "react-router-dom"
 import { useNotification } from "../../Notification/NotificationService"
-import { useEffect } from "react"
 import ItemDetail from "../ItemDetail/ItemDetail"
 import { getProductById } from '../../services/firebase/firestore/products'
 import { useAsync } from '../../hooks/useAsync'
