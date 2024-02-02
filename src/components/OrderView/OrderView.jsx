@@ -4,10 +4,36 @@ import OrderViewBuyer from '../OrderViewBuyer/OrderViewBuyer'
 import OrderViewItem from '../OrderViewItem/OrderViewItem'
 import classes from './OrderView.module.scss'
 import { useTitle } from '../../hooks/useTitle'
+import { useEffect, useState } from 'react'
+import { useNotification } from '../../Notification/NotificationService'
+import { orderData } from '../../services/firebase/firestore/products'
 
-const OrderView = ({ orderId, buyer, item, total }) => {
+const OrderView = ({ orderSnapshot }) => {
 
     useTitle(true, 'Plataforma 9 3/4 | Oden de Compra', [])
+
+    const [buyer, setBuyer] = useState(null)
+    const [item, setItem] = useState(null)
+    const [total, setTotal] = useState(null)
+    const { showNotification } = useNotification()
+    const [orderId, setOrderId] = useState(null)
+
+
+    useEffect(() => {
+        const fetchOrderData = async () => {
+            try {
+                const result = await orderData(orderSnapshot);
+                setBuyer(result.buyer);
+                setItem(result.item)
+                setTotal(result.total)
+                setOrderId(result.orderId)
+            } catch (error) {
+                showNotification('error', 'Error al generar la orden')
+            }
+        };
+
+        fetchOrderData();
+    }, [orderSnapshot]);
 
     return (
         <div className="container">

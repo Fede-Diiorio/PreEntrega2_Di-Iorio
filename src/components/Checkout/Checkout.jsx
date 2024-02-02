@@ -4,9 +4,9 @@ import { useCart } from '../../context/CartContext'
 import { useNotification } from '../../Notification/NotificationService'
 import { useLocalStorage } from '../../LocalStorageContext/LocalStorageContext'
 import { useState } from 'react'
-import OrderLogic from '../OrderLogic/OrderLogic'
 import OrderForm from '../OrderForm/OrderForm'
 import classes from './Checkout.module.scss'
+import OrderView from '../OrderView/OrderView'
 
 const Checkout = () => {
     const [loading, setLoading] = useState(false)
@@ -70,7 +70,7 @@ const Checkout = () => {
     }
 
     if (orderSnapshot) {
-        return <OrderLogic orderSnapshot={orderSnapshot} />
+        return <OrderView orderSnapshot={orderSnapshot} />
     }
 
     return (
