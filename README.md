@@ -1,6 +1,8 @@
 # Plataforma 9 3/4
 
-Este producto está en construcción
+Este producto se encuentra en construcción
+
+Este proyecto fue creado con fines educativos utilizando Vite y Firebase. Es fundamental destacar que, para ejecutarlo de manera local, el usuario debe contar con su propia base de datos en Firebase. De lo contrario, no podrá disfrutar completamente de las funcionalidades del producto.
 
 ## Correr de manera local
 ```bash
@@ -18,3 +20,5 @@ $ npm run dev
 - [Bootstrap](https://getbootstrap.com/)
 - [SweetAlert2](https://sweetalert2.github.io/)
 - [React-icons](https://react-icons.github.io/react-icons/)
+
+### [Video Demostrativo](https://youtu.be/4s0HbG6DFTI)
