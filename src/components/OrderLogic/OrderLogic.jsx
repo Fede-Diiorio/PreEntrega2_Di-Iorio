@@ -3,6 +3,8 @@ import { doc, getDoc } from 'firebase/firestore'
 import { useEffect, useState } from 'react'
 import { useNotification } from '../../Notification/NotificationService'
 import OrderView from '../OrderView/OrderView'
+import { orderData } from '../../services/firebase/firestore/products'
+import { useAsync } from '../../hooks/useAsync'
 
 const OrderLogic = ({ orderSnapshot }) => {
     const [buyer, setBuyer] = useState(null)
@@ -34,6 +36,19 @@ const OrderLogic = ({ orderSnapshot }) => {
         }
         fetchData()
     }, [orderSnapshot, showNotification])
+
+    useEffect(() => {
+        const fetchOrderData = async () => {
+            try {
+                const result = await orderData(orderSnapshot);
+                console.log(result);
+            } catch (error) {
+                console.error("Error fetching order data:", error);
+            }
+        };
+
+        fetchOrderData();
+    }, [orderSnapshot]);
 
     return (
         <OrderView orderId={orderId} buyer={buyer} item={item} total={total} />
