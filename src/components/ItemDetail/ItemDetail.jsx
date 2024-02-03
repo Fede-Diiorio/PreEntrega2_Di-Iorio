@@ -1,9 +1,7 @@
 import { useLocalStorage } from '../../LocalStorageContext/LocalStorageContext'
 import { useCart } from '../../context/CartContext'
-import { useState } from 'react'
 import DollarToPesoPrice from '../../helpers/DollarToPesoPrice'
 import ItemCount from '../ItemCount/ItemCount'
-import Button from '../Button/Button'
 import classes from './ItemDetail.module.scss'
 
 const ItemDetail = ({ id, name, img, description, stock, price }) => {
