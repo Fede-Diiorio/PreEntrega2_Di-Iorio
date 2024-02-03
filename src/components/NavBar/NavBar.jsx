@@ -1,26 +1,15 @@
-import { db } from '../../services/firebase/firebaseConfig';
-import { collection, getDocs } from "firebase/firestore"
-import { useEffect, useState } from 'react';
 import Button from '../Button/Button'
 import classes from './NavBar.module.scss'
+import { getCategories } from '../../services/firebase/firestore/categories'
+import { useAsync } from '../../hooks/useAsync';
 
 const NavBar = ({ toggleNavBar }) => {
     const handleButtonClick = () => {
         toggleNavBar();
     };
 
-    const [categories, setCategories] = useState([])
-
-    useEffect(() => {
-        const categoriesCollection = collection(db, 'categories')
-        getDocs(categoriesCollection).then(querySnapshot => {
-            const categoriesAdapted = querySnapshot.docs.map(doc => {
-                const fields = doc.data()
-                return { id: doc.id, ...fields }
-            })
-            setCategories(categoriesAdapted)
-        })
-    }, [])
+    const asyncFunction = () => getCategories()
+    const { data: categories } = useAsync(asyncFunction, [])
 
     return (
         <section className={classes.aside}>
