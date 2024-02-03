@@ -6,7 +6,7 @@ import classes from './OrderView.module.scss'
 import { useTitle } from '../../hooks/useTitle'
 import { useEffect, useState } from 'react'
 import { useNotification } from '../../Notification/NotificationService'
-import { orderData } from '../../services/firebase/firestore/products'
+import { orderData } from '../../services/firebase/firestore/order'
 
 const OrderView = ({ orderSnapshot }) => {
 
