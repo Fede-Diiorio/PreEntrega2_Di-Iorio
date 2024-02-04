@@ -16,7 +16,6 @@ const OrderView = ({ orderSnapshot }) => {
 
     const asyncFunction = () => orderData(orderSnapshot)
     const { data, loading, error } = useAsync(asyncFunction, [orderSnapshot])
-    console.log(data)
 
     if (loading) {
         return <h2>Solo un momento mas...</h2>

@@ -8,26 +8,29 @@ import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailCont
 import CartView from "./components/CartView/CartView"
 import Error404 from "./components/Error404/Error404"
 import Checkout from "./components/Checkout/Checkout"
+import { FormatPriceProvider } from "./hooks/useFormatPrice"
 
 function App() {
   return (
     <main>
       <BrowserRouter>
-        <LocalStorageProvider>
-          <NotificationProvider>
-            <CartProvider>
-              <Header />
-              <Routes>
-                <Route path="/" element={<ItemListContainer greeting={"¡Bienvenidos!"} />} />
-                <Route path="/category/:categoryId" element={<ItemListContainer greeting={"Filtro por Categoria"} />} />
-                <Route path="/detail/:id" element={<ItemDetailContainer />} />
-                <Route path="/cart" element={<CartView />} />
-                <Route path="/checkout" element={<Checkout />} />
-                <Route path="*" element={<Error404 />} />
-              </Routes>
-            </CartProvider>
-          </NotificationProvider>
-        </LocalStorageProvider>
+        <FormatPriceProvider>
+          <LocalStorageProvider>
+            <NotificationProvider>
+              <CartProvider>
+                <Header />
+                <Routes>
+                  <Route path="/" element={<ItemListContainer greeting={"¡Bienvenidos!"} />} />
+                  <Route path="/category/:categoryId" element={<ItemListContainer greeting={"Filtro por Categoria"} />} />
+                  <Route path="/detail/:id" element={<ItemDetailContainer />} />
+                  <Route path="/cart" element={<CartView />} />
+                  <Route path="/checkout" element={<Checkout />} />
+                  <Route path="*" element={<Error404 />} />
+                </Routes>
+              </CartProvider>
+            </NotificationProvider>
+          </LocalStorageProvider>
+        </FormatPriceProvider>
       </BrowserRouter>
     </main>
   )

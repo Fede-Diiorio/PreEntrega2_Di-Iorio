@@ -1,8 +1,7 @@
+import { useFormatPrice } from "../../hooks/useFormatPrice"
 import { useCart } from "../../context/CartContext"
 import { useLocalStorage } from "../../LocalStorageContext/LocalStorageContext"
 import { useNotification } from "../../Notification/NotificationService"
-import { formatPrice } from "../../helpers/DollarToPesoPrice"
-import DollarToPesoPrice from '../../helpers/DollarToPesoPrice'
 import CartItem from "../CartItem/CartItem"
 import Button from "../Button/Button"
 import classes from './CartView.module.scss'
@@ -12,6 +11,7 @@ const CartView = () => {
     const { cart, clearCart, totalQuantity, totalPrice } = useCart()
     const { clearCartFromLocalStorage } = useLocalStorage()
     const { showConfirmation } = useNotification()
+    const { formatPrice, dollarFormatPrice } = useFormatPrice()
 
     const handleClearCart = () => {
         clearCart()
@@ -46,7 +46,7 @@ const CartView = () => {
                 <Button to={'/checkout'}>checkout</Button>
                 <div className={classes.priceContainer}>
                     <h4><strong>Total USD: </strong>$ {formatPrice(totalPrice)}</h4>
-                    <h4><strong>Total ARS: </strong>$ <DollarToPesoPrice price={totalPrice} /></h4>
+                    <h4><strong>Total ARS: </strong>$ {dollarFormatPrice(totalPrice)}</h4>
 
                 </div>
             </div>
