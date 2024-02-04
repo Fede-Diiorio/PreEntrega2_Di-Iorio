@@ -11,9 +11,9 @@ export const LocalStorageProvider = ({ children }) => {
 
     const saveCartToLocalStorage = (saveProduct) => {
 
-        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        let cart = JSON.parse(localStorage.getItem('cart')) || []
 
-        const findProduct = cart.find(prod => prod.name === saveProduct.name);
+        const findProduct = cart.find(prod => prod.name === saveProduct.name)
 
         if (!findProduct) {
             cart.push(saveProduct);
@@ -22,7 +22,7 @@ export const LocalStorageProvider = ({ children }) => {
     }
 
     const getCartFromLocalStorage = () => {
-        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        const cart = JSON.parse(localStorage.getItem('cart')) || []
         return cart
     }
 

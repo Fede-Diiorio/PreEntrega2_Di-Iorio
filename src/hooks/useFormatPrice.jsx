@@ -11,28 +11,28 @@ export const FormatPriceProvider = ({ children }) => {
         const formattedNumber = numberWithDecimals.replace(
             /\B(?=(\d{3})+(?!\d))/g,
             ","
-        );
+        )
         return formattedNumber;
-    };
+    }
 
     const DollarFormatPriceImpl = () => {
-        const [usd, setUsd] = useState(null);
+        const [usd, setUsd] = useState(null)
 
         useEffect(() => {
             fetch("https://api.bluelytics.com.ar/v2/latest")
                 .then((result) => result.json())
                 .then((resultJson) => {
-                    setUsd(resultJson.blue.value_avg);
-                });
-        }, []);
+                    setUsd(resultJson.blue.value_avg)
+                })
+        }, [])
 
         const dollarFormatPrice = (price) => {
-            const conversion = price * usd;
-            return formatPrice(conversion);
-        };
+            const conversion = price * usd
+            return formatPrice(conversion)
+        }
 
         return dollarFormatPrice;
-    };
+    }
 
     const dollarFormatPrice = DollarFormatPriceImpl();
 
@@ -40,9 +40,9 @@ export const FormatPriceProvider = ({ children }) => {
         <FormatPriceContext.Provider value={{ dollarFormatPrice, formatPrice }}>
             {children}
         </FormatPriceContext.Provider>
-    );
-};
+    )
+}
 
 export const useFormatPrice = () => {
     return useContext(FormatPriceContext);
-};
+}
