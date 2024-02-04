@@ -1,12 +1,13 @@
 import { useLocalStorage } from '../../LocalStorageContext/LocalStorageContext'
 import { useCart } from '../../context/CartContext'
-import DollarToPesoPrice from '../../helpers/DollarToPesoPrice'
+import { useFormatPrice } from '../../hooks/useFormatPrice'
 import ItemCount from '../ItemCount/ItemCount'
 import classes from './ItemDetail.module.scss'
 
 const ItemDetail = ({ id, name, img, description, stock, price }) => {
     const { addItem, getProductQuantity } = useCart()
     const { saveCartToLocalStorage } = useLocalStorage()
+    const { dollarFormatPrice } = useFormatPrice()
 
     const handleOnAdd = (quantity) => {
         const objProduct = {
@@ -31,7 +32,7 @@ const ItemDetail = ({ id, name, img, description, stock, price }) => {
                 <h4 className={classes.cardTitle}>{name}</h4>
                 <p className={classes.cardText}>{description}</p>
                 <div className={classes.cardInfo}>
-                    <p><strong>Precio: </strong><DollarToPesoPrice price={price} /></p>
+                    <p><strong>Precio: </strong>$ {dollarFormatPrice(price)}</p>
                     <p><strong>Stock: </strong>{stock}</p>
                 </div>
                 <div className={classes.itemCount}>

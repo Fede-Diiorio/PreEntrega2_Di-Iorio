@@ -1,5 +1,5 @@
 import Button from '../Button/Button'
-import DollarToPesoPrice from '../../helpers/DollarToPesoPrice'
+import { useFormatPrice } from '../../hooks/useFormatPrice'
 import OrderViewBuyer from '../OrderViewBuyer/OrderViewBuyer'
 import OrderViewItem from '../OrderViewItem/OrderViewItem'
 import classes from './OrderView.module.scss'
@@ -13,6 +13,7 @@ const OrderView = ({ orderSnapshot }) => {
     useTitle(true, 'Plataforma 9 3/4 | Oden de Compra', [])
 
     const { showNotification } = useNotification()
+    const { dollarFormatPrice } = useFormatPrice()
 
     const asyncFunction = () => orderData(orderSnapshot)
     const { data, loading, error } = useAsync(asyncFunction, [orderSnapshot])
@@ -36,7 +37,7 @@ const OrderView = ({ orderSnapshot }) => {
                     <OrderViewBuyer buyer={data.buyer} />
                     <OrderViewItem item={data.item} />
                 </div>
-                <p className={classes.total}>Total de la compra: ${<DollarToPesoPrice price={data.total} />}</p>
+                <p className={classes.total}>Total de la compra: $ {dollarFormatPrice(data.total)}</p>
                 <p>Pronto nos pondremos en contacto con usted</p>
                 <Button to={'/'}>Volver al inicio</Button>
             </div>

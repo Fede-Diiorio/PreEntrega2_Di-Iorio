@@ -1,14 +1,15 @@
 import { useCart } from '../../context/CartContext'
 import { useNotification } from '../../Notification/NotificationService'
 import { useLocalStorage } from '../../LocalStorageContext/LocalStorageContext'
-import { formatPrice } from '../../helpers/DollarToPesoPrice'
 import { FaTrashCan } from 'react-icons/fa6'
 import classes from './CartItem.module.scss'
+import { useFormatPrice } from '../../hooks/useFormatPrice'
 
 const CartItem = ({ img, name, price, quantity, id }) => {
     const { removeItem } = useCart();
     const { showNotification, showConfirmation } = useNotification()
     const { removeProductFromLocalStorage } = useLocalStorage()
+    const { formatPrice } = useFormatPrice()
 
     const deleteItem = () => {
         showNotification('success', 'Eliminado correctamente')

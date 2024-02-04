@@ -1,8 +1,11 @@
 import Button from '../Button/Button'
-import DollarToPesoPrice from '../../helpers/DollarToPesoPrice'
+import { useFormatPrice } from '../../hooks/useFormatPrice'
 import classes from './Item.module.scss'
 
 const Item = ({ id, name, img, price, stock }) => {
+
+    const { dollarFormatPrice } = useFormatPrice()
+
     return (
         <div className={classes.width}>
             <div className={classes.card}>
@@ -10,7 +13,7 @@ const Item = ({ id, name, img, price, stock }) => {
                 <div className={classes.cardBody}>
                     <h4 className={classes.title}>{name}</h4>
                     <div className={classes.cardInfo}>
-                        <p><strong>Precio: </strong>$ <DollarToPesoPrice price={price} /></p>
+                        <p><strong>Precio: </strong>$ {dollarFormatPrice(price)}</p>
                         <p><strong>Stock: </strong>{stock}</p>
                     </div>
                     <Button to={`/detail/${id}`}>Ver Detalle</Button>
